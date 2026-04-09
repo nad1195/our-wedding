@@ -4,757 +4,571 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <meta name="theme-color" content="#FAF7F2" />
-  <title>Nadya & Jin · Our Wedding Journey</title>
+  <title>Nad & Jin · Our Wedding Journey</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --cream: #FAF7F2;
-      --warm-white: #FFFDF9;
-      --gold: #B8974A;
-      --gold-light: #E8D9B0;
-      --gold-pale: #F5EDD8;
-      --text-dark: #2A2118;
-      --text-mid: #6B5C47;
-      --text-light: #A8997E;
+      --cream: #FAF7F2; --warm-white: #FFFDF9;
+      --gold: #B8974A; --gold-light: #E8D9B0; --gold-pale: #F5EDD8;
+      --text-dark: #2A2118; --text-mid: #6B5C47; --text-light: #A8997E;
       --border: #E2D5BC;
     }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text-dark); font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
 
-    body {
-      font-family: 'Jost', sans-serif;
-      background: var(--cream);
-      color: var(--text-dark);
-      font-size: 16px;
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
-    }
+    .lang-bar { background: var(--warm-white); border-bottom: 1px solid var(--border); display: flex; justify-content: center; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; }
+    .lang-btn { font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.85rem; border: 1px solid var(--border); border-radius: 1px; background: transparent; color: var(--text-light); cursor: pointer; transition: all 0.2s; min-height: 0; }
+    .lang-btn.active { background: var(--gold-pale); border-color: var(--gold-light); color: var(--gold); }
+    .lang-sep { color: var(--border); font-size: 12px; }
 
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(250, 247, 242, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 1rem;
-      display: flex;
-      justify-content: center;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 1rem; display: flex; justify-content: center; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     nav::-webkit-scrollbar { display: none; }
-    nav a {
-      flex-shrink: 0;
-      display: block;
-      padding: 0.85rem 0.9rem;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-mid);
-      text-decoration: none;
-      white-space: nowrap;
-      transition: color 0.2s;
-    }
+    nav a { flex-shrink: 0; display: block; padding: 0.85rem 0.9rem; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; white-space: nowrap; transition: color 0.2s; }
     nav a:hover, nav a:active { color: var(--gold); }
 
-    .hero {
-      min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 5rem 1.5rem 4rem;
-      background: var(--warm-white);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 40% at 15% 85%, #EFE3C818 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 85% 15%, #DFD4B818 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .hero-eyebrow {
-      font-size: 10px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.2s forwards;
-    }
-    .hero-names {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(48px, 14vw, 80px);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--text-dark);
-      opacity: 0;
-      animation: fadeUp 0.9s ease 0.4s forwards;
-    }
-    .hero-names em {
-      font-style: italic;
-      color: var(--gold);
-      display: block;
-      font-size: 0.75em;
-      line-height: 1.4;
-    }
-    .hero-ornament {
-      margin: 1.5rem auto;
-      width: 60px;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.6s forwards;
-    }
-    .hero-date-block {
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.7s forwards;
-    }
-    .hero-date {
-      font-size: 14px;
-      color: var(--text-mid);
-      font-weight: 300;
-      letter-spacing: 0.04em;
-      margin-bottom: 0.3rem;
-    }
-    .hero-date-note {
-      font-size: 13px;
-      color: var(--text-light);
-      font-style: italic;
-      font-family: 'Cormorant Garamond', serif;
-    }
-    .hero-sub {
-      margin-top: 2rem;
-      font-size: 14px;
-      color: var(--text-light);
-      max-width: 340px;
-      line-height: 1.8;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.9s forwards;
-    }
-    .scroll-hint {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 1.2s forwards;
-    }
-    .scroll-hint span {
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-light);
-    }
-    .scroll-arrow {
-      width: 1px;
-      height: 24px;
-      background: linear-gradient(to bottom, var(--gold-light), transparent);
-      animation: scrollPulse 1.8s ease infinite;
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.4; transform: scaleY(0.7); }
-      50% { opacity: 1; transform: scaleY(1); }
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    .hero { min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 5rem 1.5rem 4rem; background: var(--warm-white); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 40% at 15% 85%, #EFE3C818 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 85% 15%, #DFD4B818 0%, transparent 60%); pointer-events: none; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
+    .hero-names { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px,14vw,80px); font-weight: 300; line-height: 1.1; color: var(--text-dark); opacity: 0; animation: fadeUp 0.9s ease 0.4s forwards; }
+    .hero-names em { font-style: italic; color: var(--gold); display: block; font-size: 0.75em; line-height: 1.4; }
+    .hero-ornament { margin: 1.5rem auto; width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards; }
+    .hero-date-block { opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards; }
+    .hero-date { font-size: 14px; color: var(--text-mid); font-weight: 300; letter-spacing: 0.04em; margin-bottom: 0.3rem; }
+    .hero-date-note { font-size: 13px; color: var(--text-light); font-style: italic; font-family: 'Cormorant Garamond', serif; }
+    .hero-sub { margin-top: 2rem; font-size: 14px; color: var(--text-light); max-width: 340px; line-height: 1.8; opacity: 0; animation: fadeUp 0.8s ease 0.9s forwards; }
+    .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; opacity: 0; animation: fadeUp 0.8s ease 1.2s forwards; }
+    .scroll-hint span { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); }
+    .scroll-arrow { width: 1px; height: 24px; background: linear-gradient(to bottom, var(--gold-light), transparent); animation: scrollPulse 1.8s ease infinite; }
+    @keyframes scrollPulse { 0%,100%{opacity:.4;transform:scaleY(.7)} 50%{opacity:1;transform:scaleY(1)} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 
-    .section {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 3.5rem 1.25rem;
-    }
+    .section { max-width: 680px; margin: 0 auto; padding: 3.5rem 1.25rem; }
     .section + .section { border-top: 1px solid var(--border); }
     .section-header { margin-bottom: 1.5rem; }
-    .section-number {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 12px;
-      color: var(--gold);
-      letter-spacing: 0.1em;
-      display: block;
-      margin-bottom: 0.25rem;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(26px, 6vw, 34px);
-      font-weight: 400;
-      color: var(--text-dark);
-      line-height: 1.2;
-    }
-    .section-intro {
-      font-size: 14px;
-      color: var(--text-mid);
-      margin-bottom: 2rem;
-      line-height: 1.85;
-    }
+    .section-number { font-family: 'Cormorant Garamond', serif; font-size: 12px; color: var(--gold); letter-spacing: 0.1em; display: block; margin-bottom: 0.25rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px,6vw,34px); font-weight: 400; color: var(--text-dark); line-height: 1.2; }
+    .section-intro { font-size: 14px; color: var(--text-mid); margin-bottom: 2rem; line-height: 1.85; }
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+    .card-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+    @media(min-width:520px){ .card-grid-2{ grid-template-columns:1fr 1fr; } }
+    .card { background: var(--warm-white); border: 1px solid var(--border); border-radius: 2px; padding: 1.25rem; }
+    .card-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
+    .card-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-dark); }
+    .card-body { font-size: 13.5px; color: var(--text-mid); line-height: 1.75; }
+
+    /* VENUE */
+    .venue-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 1.25rem 0; }
+    .venue-photos img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; display: block; }
+    .venue-photos img.wide { grid-column: 1 / -1; aspect-ratio: 16/7; }
+    .venue-link { display: flex; align-items: center; justify-content: center; gap: 0.4rem; margin-top: 0.75rem; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); text-decoration: none; border: 1px solid var(--gold-light); padding: 0.6rem 1.25rem; border-radius: 1px; transition: background 0.2s; min-height: 0; }
+    .venue-link:hover { background: var(--gold-pale); }
+
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before { content:''; position:absolute; left:6px; top:10px; bottom:10px; width:1px; background:var(--border); }
+    .timeline-item { position: relative; margin-bottom: 2rem; }
+    .timeline-dot { position:absolute; left:-2rem; top:4px; width:13px; height:13px; border-radius:50%; border:1.5px solid var(--border); background:var(--cream); }
+    .timeline-item.done .timeline-dot { background:var(--gold); border-color:var(--gold); }
+    .timeline-item.active .timeline-dot { background:var(--warm-white); border-color:var(--gold); box-shadow:0 0 0 3px var(--gold-pale); }
+    .timeline-date { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:0.2rem; }
+    .timeline-title { font-size:15px; font-weight:500; color:var(--text-dark); margin-bottom:0.3rem; display:flex; align-items:flex-start; gap:0.5rem; flex-wrap:wrap; line-height:1.4; }
+    .badge { display:inline-block; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; padding:2px 7px; border-radius:1px; flex-shrink:0; margin-top:1px; }
+    .badge-done { background:#EEF5E8; color:#4A7A2A; }
+    .badge-soon { background:var(--gold-pale); color:#8A6D20; }
+    .badge-future { background:#F0EDE8; color:#8A7D6A; }
+    .timeline-desc { font-size:13.5px; color:var(--text-mid); line-height:1.8; }
+    .timeline-highlight { margin-top:0.6rem; padding:0.75rem 1rem; background:var(--gold-pale); border-left:2px solid var(--gold-light); font-size:13px; color:var(--text-mid); line-height:1.75; }
+
+    /* CEREMONY ACCORDION */
+    .ceremony-summary {
+      font-size: 14px; color: var(--text-mid); line-height: 1.85; margin-bottom: 1rem;
     }
-    @media (min-width: 520px) {
-      .card-grid-2 { grid-template-columns: 1fr 1fr; }
-    }
-    .card {
+    .ceremony-toggle {
+      width: 100%;
       background: var(--warm-white);
       border: 1px solid var(--border);
       border-radius: 2px;
-      padding: 1.25rem;
-    }
-    .card-label {
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.35rem;
-    }
-    .card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-      color: var(--text-dark);
-    }
-    .card-body {
-      font-size: 13.5px;
-      color: var(--text-mid);
-      line-height: 1.75;
-    }
-
-    .timeline {
-      position: relative;
-      padding-left: 2rem;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 6px; top: 10px; bottom: 10px;
-      width: 1px;
-      background: var(--border);
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2rem;
-    }
-    .timeline-dot {
-      position: absolute;
-      left: -2rem; top: 4px;
-      width: 13px; height: 13px;
-      border-radius: 50%;
-      border: 1.5px solid var(--border);
-      background: var(--cream);
-    }
-    .timeline-item.done .timeline-dot { background: var(--gold); border-color: var(--gold); }
-    .timeline-item.active .timeline-dot {
-      background: var(--warm-white);
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px var(--gold-pale);
-    }
-    .timeline-date {
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.2rem;
-    }
-    .timeline-title {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text-dark);
-      margin-bottom: 0.3rem;
+      padding: 0.85rem 1.1rem;
       display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      line-height: 1.4;
-    }
-    .badge {
-      display: inline-block;
-      font-size: 10px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 2px 7px;
-      border-radius: 1px;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .badge-done { background: #EEF5E8; color: #4A7A2A; }
-    .badge-soon { background: var(--gold-pale); color: #8A6D20; }
-    .badge-future { background: #F0EDE8; color: #8A7D6A; }
-    .timeline-desc {
-      font-size: 13.5px;
-      color: var(--text-mid);
-      line-height: 1.8;
-    }
-    .timeline-highlight {
-      margin-top: 0.6rem;
-      padding: 0.75rem 1rem;
-      background: var(--gold-pale);
-      border-left: 2px solid var(--gold-light);
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
       font-size: 13px;
       color: var(--text-mid);
-      line-height: 1.75;
+      letter-spacing: 0.05em;
+      min-height: 0;
+      transition: background 0.2s;
     }
-
-    .compare-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    @media (min-width: 500px) {
-      .compare-grid { grid-template-columns: 1fr 1fr; }
-    }
-    .compare-col {
-      background: var(--warm-white);
+    .ceremony-toggle:hover { background: var(--gold-pale); }
+    .ceremony-toggle-icon { font-size: 16px; color: var(--gold); transition: transform 0.25s; }
+    .ceremony-toggle.open .ceremony-toggle-icon { transform: rotate(45deg); }
+    .ceremony-steps {
+      display: none;
+      flex-direction: column;
+      gap: 0;
       border: 1px solid var(--border);
-      border-radius: 2px;
+      border-top: none;
+      border-radius: 0 0 2px 2px;
       overflow: hidden;
+      margin-bottom: 1rem;
     }
-    .compare-header {
-      background: var(--gold-pale);
-      padding: 0.7rem 1rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .compare-country {
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.1rem;
-    }
-    .compare-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 17px;
-      color: var(--text-dark);
-    }
-    .compare-item {
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid var(--border);
-      font-size: 13.5px;
-      color: var(--text-mid);
-      line-height: 1.6;
-      display: flex;
-      gap: 0.5rem;
-    }
-    .compare-item:last-child { border-bottom: none; }
-    .compare-item::before {
-      content: '·';
-      color: var(--gold);
-      font-size: 18px;
-      line-height: 1.3;
-      flex-shrink: 0;
-    }
+    .ceremony-steps.open { display: flex; }
+    .ceremony-step { display: flex; align-items: flex-start; gap: 1rem; padding: 0.85rem 1.1rem; border-bottom: 1px solid var(--border); background: var(--warm-white); }
+    .ceremony-step:last-child { border-bottom: none; }
+    .ceremony-step-num { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: var(--gold); flex-shrink: 0; width: 1.2rem; padding-top: 1px; }
+    .ceremony-step-text { font-size: 13.5px; color: var(--text-mid); line-height: 1.6; }
+    .ceremony-step-text strong { color: var(--text-dark); font-weight: 500; }
 
-    .note-box {
-      background: var(--warm-white);
-      border: 1px solid var(--border);
-      border-top: 2px solid var(--gold);
-      padding: 1.25rem;
-      margin: 1.5rem 0;
-      border-radius: 2px;
-    }
-    .note-box p {
-      font-size: 14px;
-      color: var(--text-mid);
-      line-height: 1.85;
-    }
+    /* COMPARE */
+    .compare-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin-bottom:1.5rem; }
+    @media(min-width:500px){ .compare-grid{ grid-template-columns:1fr 1fr; } }
+    .compare-col { background:var(--warm-white); border:1px solid var(--border); border-radius:2px; overflow:hidden; }
+    .compare-header { background:var(--gold-pale); padding:0.7rem 1rem; border-bottom:1px solid var(--border); }
+    .compare-country { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:0.1rem; }
+    .compare-title { font-family:'Cormorant Garamond',serif; font-size:17px; color:var(--text-dark); }
+    .compare-item { padding:0.75rem 1rem; border-bottom:1px solid var(--border); font-size:13.5px; color:var(--text-mid); line-height:1.6; display:flex; gap:0.5rem; }
+    .compare-item:last-child { border-bottom:none; }
+    .compare-item::before { content:'·'; color:var(--gold); font-size:18px; line-height:1.3; flex-shrink:0; }
+
+    .note-box { background: var(--warm-white); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 1.25rem; margin: 1.5rem 0; border-radius: 2px; }
+    .note-box p { font-size: 14px; color: var(--text-mid); line-height: 1.85; }
     .note-box strong { color: var(--text-dark); font-weight: 500; }
 
-    .people-table {
-      width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      overflow: hidden;
-      margin: 1.25rem 0;
-      background: var(--warm-white);
-    }
-    .people-table-header {
-      background: var(--gold-pale);
-      padding: 0.65rem 1rem;
-      border-bottom: 1px solid var(--border);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .people-row {
-      display: flex;
-      border-bottom: 1px solid var(--border);
-    }
-    .people-row:last-child { border-bottom: none; }
-    .people-name {
-      width: 45%;
-      padding: 0.75rem 1rem;
-      font-size: 13.5px;
-      font-weight: 500;
-      color: var(--text-dark);
-      border-right: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-    }
-    .people-note {
-      padding: 0.75rem 1rem;
-      font-size: 13px;
-      color: var(--text-mid);
-      line-height: 1.5;
-      display: flex;
-      align-items: center;
-    }
+    .warm-highlight { background: var(--gold-pale); border: 1px solid var(--gold-light); border-radius: 2px; padding: 1.25rem; margin: 1.5rem 0; }
+    .warm-highlight p { font-size: 14px; color: var(--text-mid); line-height: 1.85; }
+    .warm-highlight strong { color: var(--text-dark); font-weight: 500; }
 
-    .ornament-divider {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin: 2rem 0;
-    }
-    .ornament-line { flex: 1; height: 1px; background: var(--border); }
-    .ornament-cross { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--gold-light); }
+    .ornament-divider { display:flex; align-items:center; gap:0.75rem; margin:2rem 0; }
+    .ornament-line { flex:1; height:1px; background:var(--border); }
+    .ornament-cross { font-family:'Cormorant Garamond',serif; font-size:14px; color:var(--gold-light); }
 
-    footer {
-      text-align: center;
-      padding: 2.5rem 1.5rem 3.5rem;
-      border-top: 1px solid var(--border);
-    }
-    .footer-ornament {
-      width: 50px;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      margin: 0 auto 1.25rem;
-    }
-    .footer-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 17px;
-      color: var(--text-light);
-      line-height: 1.9;
-    }
-    .footer-updated {
-      margin-top: 1.5rem;
-      font-size: 11px;
-      color: var(--text-light);
-      letter-spacing: 0.05em;
-    }
+    footer { text-align:center; padding:2.5rem 1.5rem 3.5rem; border-top:1px solid var(--border); }
+    .footer-ornament { width:50px; height:1px; background:linear-gradient(to right,transparent,var(--gold),transparent); margin:0 auto 1.25rem; }
+    .footer-text { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:17px; color:var(--text-light); line-height:1.9; }
+    .footer-updated { margin-top:1.5rem; font-size:11px; color:var(--text-light); letter-spacing:0.05em; }
+
+    [data-lang] { display: none; }
+    body.lang-en [data-lang="en"], body.lang-ko [data-lang="ko"], body.lang-id [data-lang="id"] { display: block; }
+    span[data-lang] { display: none; }
+    body.lang-en span[data-lang="en"], body.lang-ko span[data-lang="ko"], body.lang-id span[data-lang="id"] { display: inline; }
   </style>
 </head>
-<body>
+<body class="lang-en">
 
-  <nav>
-    <a href="#plan">Our Plan</a>
-    <a href="#korean-wedding">Korean Wedding</a>
-    <a href="#sanggyeonrye">Family Meeting</a>
-    <a href="#catholic">Catholic Ceremony</a>
-    <a href="#timeline">Timeline</a>
-  </nav>
+<div class="lang-bar">
+  <button class="lang-btn" onclick="setLang('ko',this)">한국어</button>
+  <span class="lang-sep">·</span>
+  <button class="lang-btn active" onclick="setLang('en',this)">English</button>
+  <span class="lang-sep">·</span>
+  <button class="lang-btn" onclick="setLang('id',this)">Indonesia</button>
+</div>
 
-  <section class="hero">
-    <p class="hero-eyebrow">A message for our beloved family</p>
-    <h1 class="hero-names">
-      Nadya
-      <em>&</em>
-      Jin
-    </h1>
-    <div class="hero-ornament"></div>
-    <div class="hero-date-block">
-      <p class="hero-date">Getting Married in May or June 2027</p>
-      <p class="hero-date-note">Seoul, Korea · and Indonesia, in the Church</p>
-    </div>
-    <p class="hero-sub">We made this page just for you — so you can follow our journey, understand what we're preparing, and feel close to us every step of the way. We love you so much. 💛</p>
-    <div class="scroll-hint">
-      <span>Scroll</span>
-      <div class="scroll-arrow"></div>
-    </div>
-  </section>
+<nav>
+  <a href="#plan"><span data-lang="en">Our Plan</span><span data-lang="ko">우리의 계획</span><span data-lang="id">Rencana Kami</span></a>
+  <a href="#korean-wedding"><span data-lang="en">Korean Wedding</span><span data-lang="ko">한국 결혼식</span><span data-lang="id">Pernikahan Korea</span></a>
+  <a href="#venue"><span data-lang="en">Our Venue</span><span data-lang="ko">식장</span><span data-lang="id">Lokasi</span></a>
+  <a href="#sanggyeonrye"><span data-lang="en">Family Meeting</span><span data-lang="ko">상견례</span><span data-lang="id">Pertemuan Keluarga</span></a>
+  <a href="#catholic"><span data-lang="en">Catholic Ceremony</span><span data-lang="ko">천주교 결혼식</span><span data-lang="id">Pernikahan Katolik</span></a>
+  <a href="#timeline"><span data-lang="en">Timeline</span><span data-lang="ko">타임라인</span><span data-lang="id">Jadwal</span></a>
+</nav>
 
-  <!-- 01 OUR PLAN -->
-  <div class="section" id="plan">
-    <div class="section-header">
-      <span class="section-number">01</span>
-      <h2 class="section-title">Our Plan</h2>
-    </div>
-    <p class="section-intro">We are planning two celebrations — one in Korea, one in Indonesia — so that both families can be part of this in the most meaningful way.</p>
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow"><span data-lang="en">A message for our beloved family</span><span data-lang="ko">사랑하는 가족에게</span><span data-lang="id">Pesan untuk keluarga tercinta kami</span></p>
+  <h1 class="hero-names">Nad<em>&</em>Jin</h1>
+  <div class="hero-ornament"></div>
+  <div class="hero-date-block">
+    <p class="hero-date"><span data-lang="en">Getting Married in May or June 2027</span><span data-lang="ko">2027년 5월 또는 6월 결혼 예정</span><span data-lang="id">Menikah pada Mei atau Juni 2027</span></p>
+    <p class="hero-date-note"><span data-lang="en">Seoul, Korea · and Indonesia, in the Church</span><span data-lang="ko">서울, 한국 · 그리고 인도네시아 성당에서</span><span data-lang="id">Seoul, Korea · dan Indonesia, di Gereja</span></p>
+  </div>
+  <p class="hero-sub"><span data-lang="en">We made this page just for you — so you can follow our journey and feel close to us every step of the way. We love you so much. 💛</span><span data-lang="ko">이 페이지는 여러분을 위해 만들었어요. 우리의 여정을 함께 따라오실 수 있도록. 많이 사랑해요. 💛</span><span data-lang="id">Kami membuat halaman ini khusus untuk kalian — agar bisa mengikuti perjalanan kami. Kami sangat menyayangi kalian. 💛</span></p>
+  <div class="scroll-hint">
+    <span><span data-lang="en">Scroll</span><span data-lang="ko">스크롤</span><span data-lang="id">Gulir</span></span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
 
+<!-- 01 OUR PLAN -->
+<div class="section" id="plan">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2 class="section-title"><span data-lang="en">Our Plan</span><span data-lang="ko">우리의 계획</span><span data-lang="id">Rencana Kami</span></h2>
+  </div>
+  <div data-lang="en">
+    <p class="section-intro">We are planning two celebrations and preparing our first home together — everything is moving at once, and we want you to be part of every step.</p>
     <div class="card-grid card-grid-2">
-      <div class="card">
-        <p class="card-label">Wedding 1 · Korea</p>
-        <p class="card-title">Korean Ceremony</p>
-        <p class="card-body">A modern Korean-style ceremony in Seoul. We are choosing between <strong>May 30</strong> and <strong>June 13, 2027</strong>. We'll confirm the date soon!</p>
-      </div>
-      <div class="card">
-        <p class="card-label">Wedding 2 · Indonesia</p>
-        <p class="card-title">Catholic Church Ceremony</p>
-        <p class="card-body">A Catholic ceremony at a church in Indonesia — so our Indonesian family can witness our vows at home. This one is planned especially for you. 🙏</p>
-      </div>
+      <div class="card"><p class="card-label">Wedding 1 · Korea</p><p class="card-title">Korean Ceremony</p><p class="card-body">A modern Korean-style ceremony in Seoul. We are deciding between <strong>May 30</strong> and <strong>June 13, 2027</strong> — the date affects the venue pricing, and the total cost falls between <strong>20–30M KRW</strong> (around Rp 220–330 million). We want to make a thoughtful choice we won't regret.</p></div>
+      <div class="card"><p class="card-label">Wedding 2 · Indonesia</p><p class="card-title">Catholic Church Ceremony</p><p class="card-body">A Catholic ceremony in Indonesia — planned so our Indonesian family can witness our vows at home. This one is for you. 🙏</p></div>
     </div>
-
-    <div class="note-box">
-      <p>We know this is a lot to take in, and we are so grateful for your patience and love as we plan across two countries. This page will always be kept up to date — feel free to check back anytime. 💛</p>
-    </div>
+    <div class="card" style="margin-bottom:1.5rem;"><p class="card-label">Our New Home</p><p class="card-title">Finding a Place to Begin</p><p class="card-body">Nad's current lease ends in <strong>March 2027</strong>, so we are actively looking for our first home together in Seoul. We are considering buying (up to 900M KRW / around Rp 10 billion) or renting on a long-term jeonse contract (500–600M KRW / around Rp 5.5–6.5 billion). There is a lot to consider — investment value, neighborhood, visiting properties in person — and we talk about it every single day. 🏠</p></div>
+    <div class="note-box"><p>Wedding venues, a new home, a car, studio photography, dresses — preparing for all of this at once has shown us how quickly costs add up. We have made a conscious decision: rather than going as big or as lavish as possible, we want to spend thoughtfully and make choices we truly won't regret. Meaningful over extravagant — that feels right for us. 💛</p></div>
   </div>
-
-  <!-- 02 KOREAN WEDDING -->
-  <div class="section" id="korean-wedding">
-    <div class="section-header">
-      <span class="section-number">02</span>
-      <h2 class="section-title">How a Korean Wedding Works</h2>
+  <div data-lang="ko">
+    <p class="section-intro">한국과 인도네시아 두 곳에서 결혼식을 계획하고, 동시에 신혼집도 알아보고 있어요.</p>
+    <div class="card-grid card-grid-2">
+      <div class="card"><p class="card-label">결혼식 1 · 한국</p><p class="card-title">한국 결혼식</p><p class="card-body">서울에서 진행 예정. <strong>2027년 5월 30일</strong> 또는 <strong>6월 13일</strong> 중 고민 중이에요 — 날짜에 따라 예식장 가격이 달라져서, 신중하게 결정하고 있어요. 견적은 <strong>2,000~3,000만 원</strong> 사이예요.</p></div>
+      <div class="card"><p class="card-label">결혼식 2 · 인도네시아</p><p class="card-title">천주교 성당 결혼식</p><p class="card-body">인도네시아 가족들이 함께할 수 있도록 고향에서 진행하는 가톨릭 예식이에요. 🙏</p></div>
     </div>
-    <p class="section-intro">Korean weddings follow a clear and organized process. Here is each step, so you know exactly what we are preparing and what to expect.</p>
+    <div class="card" style="margin-bottom:1.5rem;"><p class="card-label">신혼집</p><p class="card-title">함께 살 집 알아보는 중</p><p class="card-body">Nad의 현재 집 계약이 <strong>2027년 3월</strong>에 만기라, 신혼집으로 이사할 준비 중이에요. 매매 9억 이하 또는 전세 5~6억 선으로 서울 내에서 알아보고 있어요. 매일 둘이 이야기하며 함께 결정해 나가고 있어요. 🏠</p></div>
+    <div class="note-box"><p>예식장, 신혼집, 차, 스드메까지 — 준비하면서 생각보다 돈이 많이 필요하다는 걸 실감하고 있어요. 그래서 우리는 무조건 크고 화려하게 하기보다, 적당한 선에서 후회 없는 선택을 하자는 마음으로 하나씩 결정해 나가고 있어요. 💛</p></div>
+  </div>
+  <div data-lang="id">
+    <p class="section-intro">Kami merencanakan dua perayaan dan mempersiapkan rumah pertama kami — semuanya berjalan sekaligus.</p>
+    <div class="card-grid card-grid-2">
+      <div class="card"><p class="card-label">Pernikahan 1 · Korea</p><p class="card-title">Upacara Korea</p><p class="card-body">Upacara gaya Korea modern di Seoul. Kami memilih antara <strong>30 Mei</strong> atau <strong>13 Juni 2027</strong> — tanggalnya mempengaruhi harga venue, dan total biayanya sekitar <strong>20–30 juta KRW</strong> (sekitar Rp 220–330 juta). Kami ingin membuat pilihan yang bijak dan tidak menyesal.</p></div>
+      <div class="card"><p class="card-label">Pernikahan 2 · Indonesia</p><p class="card-title">Pernikahan Gereja Katolik</p><p class="card-body">Upacara Katolik di Indonesia — agar keluarga Indonesia kami bisa menyaksikan janji kami di tanah air. 🙏</p></div>
+    </div>
+    <div class="card" style="margin-bottom:1.5rem;"><p class="card-label">Rumah Baru Kami</p><p class="card-title">Mencari Tempat untuk Memulai</p><p class="card-body">Kontrak sewa Nad berakhir <strong>Maret 2027</strong>, jadi kami sedang aktif mencari rumah pertama di Seoul. Kami mempertimbangkan membeli (hingga 900 juta KRW / sekitar Rp 10 miliar) atau menyewa jangka panjang (500–600 juta KRW / sekitar Rp 5,5–6,5 miliar). Kami membicarakannya setiap hari. 🏠</p></div>
+    <div class="note-box"><p>Venue pernikahan, rumah baru, mobil, sesi foto, gaun — mempersiapkan semua ini sekaligus membuat kami sadar betapa cepatnya biaya bertambah. Kami telah memutuskan: daripada semewah atau sebesar mungkin, kami ingin memilih dengan bijak dan membuat keputusan yang benar-benar tidak kami sesali. Bermakna lebih penting dari mewah — itu terasa benar bagi kami. 💛</p></div>
+  </div>
+</div>
 
+<!-- 02 KOREAN WEDDING -->
+<div class="section" id="korean-wedding">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2 class="section-title"><span data-lang="en">How a Korean Wedding Works</span><span data-lang="ko">한국 결혼식, 어떻게 진행되나요?</span><span data-lang="id">Bagaimana Pernikahan Korea Berlangsung</span></h2>
+  </div>
+  <div data-lang="en">
+    <p class="section-intro">Korean weddings have a clear process that may feel quite different from what you know. We want to walk you through it so there are no surprises.</p>
     <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="timeline-date">Step 1</p>
-        <h3 class="timeline-title">Book the Wedding Hall (예식장 예약)</h3>
-        <p class="timeline-desc">In Korea, wedding venues — called 예식장 (yeshikjang) — are booked 12 to 18 months in advance. Couples visit several halls and choose based on style, size, and date. The venue takes care of most logistics on the wedding day itself.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="timeline-date">Step 2 · Very important</p>
-        <h3 class="timeline-title">Sanggyeonrye — First Family Meeting (상견례)</h3>
-        <p class="timeline-desc">Before the wedding, both families meet formally for the first time over dinner. This is one of the most meaningful Korean pre-wedding traditions — and one we have been thinking about carefully. We explain more in the next section.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="timeline-date">Step 3</p>
-        <h3 class="timeline-title">Wedding Photo Shoot (스튜디오 촬영)</h3>
-        <p class="timeline-desc">Korean couples do a professional photo shoot a few months before the wedding — in a studio and often outdoors too. These photos are displayed at the venue on the wedding day and kept as a lifelong memory.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="timeline-date">Step 4</p>
-        <h3 class="timeline-title">Wedding Dress & Hanbok Fitting</h3>
-        <p class="timeline-desc">The bride wears a white dress for the ceremony, then changes into a <strong>Hanbok</strong> — a beautiful traditional Korean outfit — for the Paebaek rite afterward. Most brides rent these from a bridal shop.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="timeline-date">Step 5 · The Big Day</p>
-        <h3 class="timeline-title">The Ceremony & Paebaek (폐백)</h3>
-        <p class="timeline-desc">The ceremony lasts about 30–40 minutes. Vows are exchanged, rings are given, and guests celebrate at a reception banquet. Afterward comes the <strong>Paebaek</strong> — a private family rite where the couple in Hanbok bows to the groom's family, who toss dates and chestnuts as a blessing for happiness and children.</p>
-      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Step 1</p><h3 class="timeline-title">Book the Wedding Hall (예식장 예약)</h3><p class="timeline-desc">In Korea, wedding venues are typically booked 12–18 months in advance. The venue manages almost all logistics on the day.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Step 2</p><h3 class="timeline-title">Sanggyeonrye — First Family Meeting (상견례)</h3><p class="timeline-desc">A formal dinner where both families meet for the very first time — more on this in the next section.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Step 3</p><h3 class="timeline-title">Wedding Photo Shoot (스튜디오 촬영)</h3><p class="timeline-desc">A professional photo shoot a few months before the wedding. These photos are displayed at the venue on the day.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Step 4</p><h3 class="timeline-title">Wedding Dress Fitting</h3><p class="timeline-desc">The bride selects and fits her wedding dress. Most brides in Korea rent their dress from a bridal shop rather than buying.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Step 5 · The Big Day</p><h3 class="timeline-title">The Ceremony</h3><p class="timeline-desc">The ceremony itself lasts about <strong>30 minutes</strong> — which may sound short, but this is completely normal in Korea. It is designed to be focused and elegant, with the real celebration continuing over a generous reception dinner afterward.</p></div>
     </div>
-
-    <div class="ornament-divider">
-      <div class="ornament-line"></div>
-      <div class="ornament-cross">✦</div>
-      <div class="ornament-line"></div>
+    <div class="ornament-divider"><div class="ornament-line"></div><div class="ornament-cross">✦</div><div class="ornament-line"></div></div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:0.6rem;color:var(--text-dark);">The Ceremony Order</h3>
+    <p class="ceremony-summary">Korean ceremonies are short but meaningful — every moment counts. Here is what happens, step by step.</p>
+    <button class="ceremony-toggle" onclick="toggleCeremony(this)">
+      <span><span data-lang="en">See full ceremony order</span><span data-lang="ko">예식 순서 전체 보기</span><span data-lang="id">Lihat urutan upacara lengkap</span></span>
+      <span class="ceremony-toggle-icon">+</span>
+    </button>
+    <div class="ceremony-steps">
+      <div class="ceremony-step"><span class="ceremony-step-num">1</span><span class="ceremony-step-text"><strong>Processional</strong> — Groom enters first, then the bride walks down the aisle.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">2</span><span class="ceremony-step-text"><strong>Opening remarks</strong> — The officiant welcomes guests and speaks about the meaning of marriage.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">3</span><span class="ceremony-step-text"><strong>Exchange of vows</strong> — The couple reads their vows to each other.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">4</span><span class="ceremony-step-text"><strong>Exchange of rings</strong> — Rings are placed on each other's fingers.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">5</span><span class="ceremony-step-text"><strong>Declaration & blessing</strong> — The officiant officially declares them married.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">6</span><span class="ceremony-step-text"><strong>Bow to families</strong> — The couple bows to both families in the front row — a moment of deep respect and gratitude.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">7</span><span class="ceremony-step-text"><strong>Recessional & photos</strong> — The couple walks out together, followed by group photos.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">8</span><span class="ceremony-step-text"><strong>Reception dinner</strong> — All guests enjoy a generous buffet together. This is where the real celebration begins!</span></div>
     </div>
-
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:1rem;color:var(--text-dark);">Indonesian vs. Korean — What's Similar, What's Different?</h3>
-
+    <div class="ornament-divider"><div class="ornament-line"></div><div class="ornament-cross">✦</div><div class="ornament-line"></div></div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:1rem;color:var(--text-dark);">Indonesian vs. Korean — What's Different?</h3>
     <div class="compare-grid">
-      <div class="compare-col">
-        <div class="compare-header">
-          <p class="compare-country">What you know</p>
-          <p class="compare-title">Indonesian Wedding</p>
-        </div>
-        <div class="compare-item">Often at home, a hall, or restaurant</div>
-        <div class="compare-item">Follows regional and religious customs</div>
-        <div class="compare-item">Bride's family often leads the reception</div>
-        <div class="compare-item">Traditional regional attire</div>
-      </div>
-      <div class="compare-col">
-        <div class="compare-header">
-          <p class="compare-country">What to expect</p>
-          <p class="compare-title">Korean Wedding</p>
-        </div>
-        <div class="compare-item">Held in a dedicated wedding hall</div>
-        <div class="compare-item">Short modern ceremony + Paebaek rite</div>
-        <div class="compare-item">Both families equally honored</div>
-        <div class="compare-item">White dress → Hanbok</div>
-      </div>
+      <div class="compare-col"><div class="compare-header"><p class="compare-country">What you know</p><p class="compare-title">Indonesian Wedding</p></div><div class="compare-item">Often at home, a hall, or restaurant</div><div class="compare-item">Follows regional and religious customs</div><div class="compare-item">Longer, more elaborate ceremony</div><div class="compare-item">Bride's family often leads</div></div>
+      <div class="compare-col"><div class="compare-header"><p class="compare-country">What to expect</p><p class="compare-title">Korean Wedding</p></div><div class="compare-item">Dedicated professional wedding hall</div><div class="compare-item">~30 min ceremony, then dinner reception</div><div class="compare-item">Focused & elegant by design</div><div class="compare-item">Both families equally honored</div></div>
     </div>
   </div>
 
-  <!-- 03 SANGGYEONRYE -->
-  <div class="section" id="sanggyeonrye">
-    <div class="section-header">
-      <span class="section-number">03</span>
-      <h2 class="section-title">The Family Meeting — Sanggyeonrye</h2>
+  <div data-lang="ko">
+    <p class="section-intro">한국 결혼식은 익숙하지 않은 분들께 다소 낯설게 느껴질 수 있어요. 미리 알아두면 당일이 훨씬 편안할 거예요.</p>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">1단계</p><h3 class="timeline-title">예식장 예약</h3><p class="timeline-desc">보통 1년~1년 반 전에 예약해요. 당일 진행은 예식장이 관리해요.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2단계</p><h3 class="timeline-title">상견례</h3><p class="timeline-desc">양가 가족이 처음으로 공식적으로 만나는 자리예요. 다음 섹션에서 자세히 설명할게요.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">3단계</p><h3 class="timeline-title">스튜디오 촬영</h3><p class="timeline-desc">결혼식 몇 달 전에 전문 사진 촬영을 해요. 이 사진들이 당일 예식장에 전시돼요.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">4단계</p><h3 class="timeline-title">드레스 피팅</h3><p class="timeline-desc">신부가 웨딩드레스를 선택하고 피팅해요. 대부분 웨딩샵에서 대여해요.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">5단계 · 결혼 당일</p><h3 class="timeline-title">결혼식</h3><p class="timeline-desc">예식은 보통 <strong>약 30분</strong>이에요. 짧게 느껴질 수 있지만 한국에서는 완전히 정상이에요 — 예식은 간결하고 격식 있게, 진짜 축하는 이후 피로연에서 이어져요.</p></div>
     </div>
-    <p class="section-intro">This is one of the most important pre-wedding moments, and one we want to be honest and open with you about.</p>
+    <div class="ornament-divider"><div class="ornament-line"></div><div class="ornament-cross">✦</div><div class="ornament-line"></div></div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:0.6rem;color:var(--text-dark);">예식 순서</h3>
+    <p class="ceremony-summary">짧지만 의미 있는 시간이에요. 순서를 미리 알아두시면 더 편안하게 느끼실 수 있어요.</p>
+    <button class="ceremony-toggle" onclick="toggleCeremony(this)">
+      <span>예식 순서 전체 보기</span>
+      <span class="ceremony-toggle-icon">+</span>
+    </button>
+    <div class="ceremony-steps">
+      <div class="ceremony-step"><span class="ceremony-step-num">1</span><span class="ceremony-step-text"><strong>입장</strong> — 신랑 먼저 입장 후, 신부가 버진로드를 걸어 입장해요.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">2</span><span class="ceremony-step-text"><strong>주례사</strong> — 주례가 결혼의 의미에 대해 이야기해요.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">3</span><span class="ceremony-step-text"><strong>혼인 서약</strong> — 신랑 신부가 서로에게 서약을 읽어요.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">4</span><span class="ceremony-step-text"><strong>반지 교환</strong> — 서로의 손가락에 반지를 끼워줘요.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">5</span><span class="ceremony-step-text"><strong>성혼 선언</strong> — 주례가 공식적으로 결혼을 선언하고 축복해요.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">6</span><span class="ceremony-step-text"><strong>양가 부모님께 인사</strong> — 신랑 신부가 앞자리 양가 부모님께 절을 올려요.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">7</span><span class="ceremony-step-text"><strong>퇴장 & 기념사진</strong> — 함께 퇴장 후 가족, 하객들과 단체 사진을 찍어요.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">8</span><span class="ceremony-step-text"><strong>피로연</strong> — 모든 하객이 뷔페 식사 자리로 이동해요. 본격적인 축하가 시작되는 시간!</span></div>
+    </div>
+  </div>
 
+  <div data-lang="id">
+    <p class="section-intro">Pernikahan Korea memiliki proses yang jelas namun mungkin terasa berbeda. Kami ingin memandu kalian agar tidak ada kejutan.</p>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Langkah 1</p><h3 class="timeline-title">Pesan Gedung Pernikahan</h3><p class="timeline-desc">Di Korea, gedung pernikahan dipesan 12–18 bulan sebelumnya. Gedung mengelola hampir semua logistik pada hari H.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Langkah 2</p><h3 class="timeline-title">Sanggyeonrye — Pertemuan Pertama Keluarga</h3><p class="timeline-desc">Makan malam resmi di mana kedua keluarga bertemu untuk pertama kalinya — lebih lanjut di bagian berikutnya.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Langkah 3</p><h3 class="timeline-title">Sesi Foto Pernikahan</h3><p class="timeline-desc">Sesi foto profesional beberapa bulan sebelum pernikahan. Foto-foto ini dipajang di venue pada hari pernikahan.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Langkah 4</p><h3 class="timeline-title">Fitting Gaun & Hanbok</h3><p class="timeline-desc">Pengantin wanita memakai gaun putih untuk upacara, lalu berganti Hanbok untuk ritual Paebaek setelahnya.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Langkah 5 · Hari Pernikahan</p><h3 class="timeline-title">Upacara & Paebaek</h3><p class="timeline-desc">Upacara berlangsung sekitar <strong>30 menit</strong> — mungkin terasa singkat, tapi ini sepenuhnya normal di Korea. Upacara dirancang fokus dan elegan, dengan perayaan berlanjut di makan malam resepsi. Setelah itu ada Paebaek — ritual keluarga di mana pasangan berbusana Hanbok membungkuk kepada keluarga pengantin pria.</p></div>
+    </div>
+    <div class="ornament-divider"><div class="ornament-line"></div><div class="ornament-cross">✦</div><div class="ornament-line"></div></div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:0.6rem;color:var(--text-dark);">Urutan Upacara</h3>
+    <p class="ceremony-summary">Singkat tapi penuh makna — setiap momen berarti. Berikut yang akan terjadi.</p>
+    <button class="ceremony-toggle" onclick="toggleCeremony(this)">
+      <span>Lihat urutan upacara lengkap</span>
+      <span class="ceremony-toggle-icon">+</span>
+    </button>
+    <div class="ceremony-steps">
+      <div class="ceremony-step"><span class="ceremony-step-num">1</span><span class="ceremony-step-text"><strong>Prosesi masuk</strong> — Pengantin pria masuk dulu, lalu pengantin wanita berjalan di lorong.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">2</span><span class="ceremony-step-text"><strong>Sambutan pembuka</strong> — Pembawa acara menyambut tamu dan berbicara tentang makna pernikahan.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">3</span><span class="ceremony-step-text"><strong>Tukar janji</strong> — Pasangan membacakan janji satu sama lain.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">4</span><span class="ceremony-step-text"><strong>Tukar cincin</strong> — Cincin dipakaikan ke jari masing-masing.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">5</span><span class="ceremony-step-text"><strong>Deklarasi & berkat</strong> — Pembawa acara resmi menyatakan mereka menikah.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">6</span><span class="ceremony-step-text"><strong>Membungkuk kepada keluarga</strong> — Pasangan membungkuk kepada kedua keluarga di baris depan.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">7</span><span class="ceremony-step-text"><strong>Prosesi keluar & foto</strong> — Pasangan berjalan bersama, diikuti foto bersama keluarga.</span></div>
+      <div class="ceremony-step"><span class="ceremony-step-num">8</span><span class="ceremony-step-text"><strong>Makan malam resepsi</strong> — Semua tamu menikmati makan malam bersama. Di sinilah perayaan sesungguhnya dimulai!</span></div>
+    </div>
+    <div class="ornament-divider"><div class="ornament-line"></div><div class="ornament-cross">✦</div><div class="ornament-line"></div></div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:1rem;color:var(--text-dark);">Indonesia vs. Korea — Apa yang Berbeda?</h3>
+    <div class="compare-grid">
+      <div class="compare-col"><div class="compare-header"><p class="compare-country">Yang kalian kenal</p><p class="compare-title">Pernikahan Indonesia</p></div><div class="compare-item">Sering di rumah, aula, atau restoran</div><div class="compare-item">Mengikuti adat daerah dan agama</div><div class="compare-item">Upacara lebih panjang dan elaborate</div><div class="compare-item">Keluarga mempelai wanita sering memimpin</div></div>
+      <div class="compare-col"><div class="compare-header"><p class="compare-country">Yang akan kalian saksikan</p><p class="compare-title">Pernikahan Korea</p></div><div class="compare-item">Gedung pernikahan profesional khusus</div><div class="compare-item">~30 menit upacara, lalu makan malam</div><div class="compare-item">Fokus & elegan sesuai desainnya</div><div class="compare-item">Kedua keluarga dihormati setara</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 03 VENUE -->
+<div class="section" id="venue">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2 class="section-title"><span data-lang="en">Our Wedding Venue</span><span data-lang="ko">우리 결혼식 장소</span><span data-lang="id">Lokasi Pernikahan Kami</span></h2>
+  </div>
+  <div data-lang="en">
+    <p class="section-intro">We have chosen the <strong>Sky Garden Hall (하늘정원)</strong> at Ramada Seoul Sindorim Hotel — on the 14th floor, with a private garden right beside the bridal suite. We are currently deciding between our two date options, as pricing varies by date within the <strong>20–30M KRW</strong> (Rp 220–330 million) range. Contract to be signed once we confirm the date!</p>
+    <a class="venue-link" href="https://www.instagram.com/explore/tags/%ED%95%98%EB%8A%98%EC%A0%95%EC%9B%90%ED%99%80/" target="_blank">📸 See photos on Instagram → #하늘정원홀</a>
+    <div class="card" style="margin-top:1.25rem;">
+      <p class="card-label">Why we chose this hall</p>
+      <p class="card-body">Nad's original dream was a <em>hanok</em> (traditional Korean house) wedding — open air, surrounded by wooden architecture and nature. But hanok venues turned out to be extremely expensive, hard to book, and limited to certain seasons. The Sky Garden surprised us both. The garden beside the bridal suite has a quietly Korean feel — natural, calm, with subtle traditional touches — and the dining hall carries that same warmth. It felt like finding the spirit of what we wanted, in a form that was actually possible. ✨</p>
+    </div>
+  </div>
+  <div data-lang="ko">
+    <p class="section-intro">라마다 서울 신도림 호텔 14층 <strong>하늘정원홀</strong>을 선택했어요. 두 날짜 중 어느 날로 할지 고민 중인데, 날짜마다 가격이 달라서 신중하게 결정하고 있어요. 견적은 <strong>2,000~3,000만 원</strong> 사이예요. 날짜 확정되면 바로 계약할 예정이에요!</p>
+    <a class="venue-link" href="https://www.instagram.com/explore/tags/%ED%95%98%EB%8A%98%EC%A0%95%EC%9B%90%ED%99%80/" target="_blank">📸 인스타그램에서 사진 보기 → #하늘정원홀</a>
+    <div class="card" style="margin-top:1.25rem;">
+      <p class="card-label">이 홀을 선택한 이유</p>
+      <p class="card-body">원래 로망은 한옥 결혼식이었어요. 근데 알아보니 가격이 너무 비싸고, 예약이 어렵고, 야외라 계절도 타요. 하늘정원을 보고 둘 다 마음에 들었어요. 신부대기실 옆 정원이 살짝 한옥스러운 분위기가 나고, 식당도 따뜻한 느낌이에요. 원했던 감성을 현실적으로 찾은 느낌이었어요. ✨</p>
+    </div>
+  </div>
+  <div data-lang="id">
+    <p class="section-intro">Kami telah memilih <strong>Sky Garden Hall (하늘정원)</strong> di Ramada Seoul Sindorim Hotel — lantai 14, dengan taman pribadi di samping ruang pengantin. Kami sedang memilih antara dua tanggal karena harganya berbeda, dalam kisaran <strong>20–30 juta KRW</strong> (sekitar Rp 220–330 juta). Kontrak akan ditandatangani setelah tanggal dikonfirmasi!</p>
+    <a class="venue-link" href="https://www.instagram.com/explore/tags/%ED%95%98%EB%8A%98%EC%A0%95%EC%9B%90%ED%99%80/" target="_blank">📸 Lihat foto di Instagram → #하늘정원홀</a>
+    <div class="card" style="margin-top:1.25rem;">
+      <p class="card-label">Mengapa kami memilih aula ini</p>
+      <p class="card-body">Impian awal Nad adalah pernikahan di <em>hanok</em> — di luar ruangan, dikelilingi arsitektur kayu tradisional. Tapi venue hanok sangat mahal, sulit dipesan, dan terbatas pada musim tertentu. Sky Garden mengejutkan kami berdua. Taman di samping ruang pengantin memiliki nuansa Korea yang tenang dengan sentuhan tradisional halus. Rasanya seperti menemukan semangat dari apa yang kami inginkan. ✨</p>
+    </div>
+  </div>
+</div>
+
+<!-- 04 SANGGYEONRYE -->
+<div class="section" id="sanggyeonrye">
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2 class="section-title"><span data-lang="en">The Family Meeting — Sanggyeonrye</span><span data-lang="ko">상견례 — 양가 첫 만남</span><span data-lang="id">Pertemuan Keluarga — Sanggyeonrye</span></h2>
+  </div>
+
+  <div data-lang="en">
+    <p class="section-intro">This is one of the most important pre-wedding moments, and one we want to be open and honest with you about.</p>
     <div class="card" style="margin-bottom:1.5rem;">
       <p class="card-label">What is Sanggyeonrye?</p>
-      <p class="card-title">상견례 — Both Families Meet for the First Time</p>
-      <p class="card-body" style="margin-top:0.5rem;">Sanggyeonrye is a formal dinner where the groom's family and bride's family meet for the first time. It is warm and respectful — a moment to greet each other, share a meal, and talk about the wedding together. In Korean culture, this happens before the wedding preparations begin in earnest.</p>
+      <p class="card-title">상견례 — When Both Families First Meet</p>
+      <p class="card-body" style="margin-top:0.5rem;">Sanggyeonrye is a formal dinner where the groom's family and bride's family meet for the very first time — warmly, respectfully, sharing a meal and talking about the wedding. In Korean culture, it marks the official beginning of the wedding journey for both families.</p>
     </div>
 
     <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:0.75rem;color:var(--text-dark);">Why we're hoping to hold it in Seoul</h3>
+    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:1rem;">We want to be fully transparent. If the Sanggyeonrye were held in Indonesia, everyone below would need to travel — all of them working full-time, all needing to take days off:</p>
+    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:1rem;">Nad & Jin · Jin's parents · Jin's sister & her husband · Nad's sister</p>
+    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:1rem;">That's <strong>seven people</strong> flying internationally. Round-trip flights from Seoul to Jakarta cost around <strong>800,000–1,000,000 KRW per person</strong> (roughly Rp 9–11 million each), plus hotels near your home at around <strong>100,000 KRW per night</strong> (around Rp 1.1 million). For the whole group, the total becomes several times more than if just the two of you visited Seoul.</p>
+    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;">We understand the tradition, and we respect it deeply. We only hope you can also see the reality we are navigating — and that your coming to Seoul is not a lesser choice, but a genuinely loving one that makes it possible for everyone to be together.</p>
 
-    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:1.25rem;">We have thought about this carefully, and we want to share our honest reasoning with you. We love you and we want to do this right — so here is the reality of who would need to travel if we held the Sanggyeonrye in Indonesia:</p>
-
-    <div class="people-table">
-      <div class="people-table-header">People who would need to fly to Indonesia</div>
-      <div class="people-row">
-        <div class="people-name">Nadya & Jin</div>
-        <div class="people-note">Both working full-time, need to take time off</div>
-      </div>
-      <div class="people-row">
-        <div class="people-name">Jin's parents</div>
-        <div class="people-note">Both working, need to take time off</div>
-      </div>
-      <div class="people-row">
-        <div class="people-name">Jin's sister & husband</div>
-        <div class="people-note">Both working, need to take time off</div>
-      </div>
-      <div class="people-row">
-        <div class="people-name">Nadya's sibling</div>
-        <div class="people-note">Also working, would need to join</div>
-      </div>
+    <div class="warm-highlight" style="margin-top:1.5rem;">
+      <p>And if you do come to Seoul — we want it to be so much more than just a dinner. We'd love to take you apartment hunting with us, bring you along when Nad tries on wedding dresses, and experience a Hanbok fitting together. <strong>These quiet, everyday moments are the ones we most want to share with you</strong> — the whole journey, not just the ceremony itself. 🤍</p>
     </div>
 
-    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:1rem;">That is <strong style="color:var(--text-dark);">seven people</strong> taking international flights, booking accommodation, and taking days off work — all at a significant cost. For everyone travelling from Korea, this would be a very difficult and expensive trip.</p>
-
-    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;">We understand that in Indonesian tradition, the groom's family comes to the bride — and we respect that deeply. But we also hope you can understand that in this situation, what is traditional and what is possible are pulling in different directions. We are not trying to dismiss tradition. We are trying to find a way that is loving, realistic, and full of meaning for everyone.</p>
-
-    <div class="timeline-highlight" style="margin-top:1.5rem;">
-      When you visit Seoul for the Sanggyeonrye, we also want to share our everyday life with you. Things like going apartment hunting together, accompanying Nadya to look at wedding dresses, and experiencing a Hanbok fitting — these are the quiet, real moments we want you to be part of. Not just the ceremony, but the whole journey. 🤍
+    <div class="ornament-divider"><div class="ornament-line"></div><div class="ornament-cross">✦</div><div class="ornament-line"></div></div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:0.75rem;color:var(--text-dark);">About other suggestions we've considered</h3>
+    <div class="card" style="margin-bottom:1rem;">
+      <p class="card-label">Suggestion: Sanggyeonrye over video call</p>
+      <p class="card-body" style="margin-top:0.4rem;">We truly appreciate the thought. But Sanggyeonrye carries meaning precisely because it is in-person — traveling to meet, sitting at the same table, sharing food is what makes it real. A video call cannot carry that same weight for Jin's family. Jin's mother in particular felt very strongly about this. It would feel as though the meeting never truly happened.</p>
     </div>
-
-    <div class="note-box" style="margin-top:1.5rem;">
-      <p>We know this may not be what you imagined, and your feelings matter deeply to us. We are not asking you to agree right away — only to keep an open heart as we figure this out together. Whatever happens, you are loved, you are valued, and you will always be at the center of this story.</p>
-    </div>
-  </div>
-
-  <!-- 04 CATHOLIC -->
-  <div class="section" id="catholic">
-    <div class="section-header">
-      <span class="section-number">04</span>
-      <h2 class="section-title">Our Catholic Faith & Church Wedding</h2>
-    </div>
-    <p class="section-intro">Our Catholic faith is at the heart of our relationship, and we want our marriage to be truly blessed by the Church. Here is what we are preparing together.</p>
-
-    <div class="card-grid card-grid-2">
-      <div class="card">
-        <p class="card-label">November 1, 2026</p>
-        <p class="card-title">Jin's Baptism</p>
-        <p class="card-body">Jinhyeok will be baptized on <strong>All Saints' Day</strong> — a sincere and joyful commitment, both to our faith and to our future together.</p>
-      </div>
-      <div class="card">
-        <p class="card-label">November 2026</p>
-        <p class="card-title">Marriage Preparation</p>
-        <p class="card-body">We will attend <strong>Catholic marriage preparation classes</strong> (혼인교리) together — required by the Church before a Catholic wedding ceremony.</p>
-      </div>
-    </div>
-
     <div class="card" style="margin-bottom:1.5rem;">
-      <p class="card-label">2027 · Indonesia</p>
-      <p class="card-title">Catholic Church Wedding — for You</p>
-      <p class="card-body" style="margin-top:0.4rem;">We will hold a full Catholic ceremony in Indonesia so that you and our faith community can witness our vows at home, in the Church where our faith was nurtured. This celebration is planned with you in mind — from beginning to end. 🙏</p>
+      <p class="card-label">Suggestion: Meet a few days before the Indonesian wedding instead</p>
+      <p class="card-body" style="margin-top:0.4rem;">This would mean our families meeting for the very first time right in the middle of wedding preparations — rushed, busy, with no space to truly get to know each other. Sanggyeonrye is meant to be unhurried and warm. Fitting it into the edge of a wedding trip wouldn't give it the care it deserves.</p>
     </div>
-
     <div class="note-box">
-      <p><strong>A note from Nadya:</strong> I know how deeply important our faith is to you, and it is to me too. Having Jin receive baptism, and going through the Church's preparation together — it means everything to me. Thank you for raising me in a home full of faith. The church wedding is for you. 🤍</p>
+      <p>We know this is not how you imagined it, and your feelings matter to us more than you know. We are not asking you to agree right away — only to know that every decision we've made comes from love, and a deep wish to honor both families. You are always at the center of everything we plan. 💛</p>
     </div>
   </div>
 
-  <!-- 05 TIMELINE -->
-  <div class="section" id="timeline">
-    <div class="section-header">
-      <span class="section-number">05</span>
-      <h2 class="section-title">Our Preparation Timeline</h2>
+  <div data-lang="ko">
+    <p class="section-intro">결혼 전 가장 중요한 순간 중 하나예요. 솔직하게 이야기 드리고 싶어요.</p>
+    <div class="card" style="margin-bottom:1.5rem;">
+      <p class="card-label">상견례란?</p>
+      <p class="card-title">양가 가족의 첫 공식 만남</p>
+      <p class="card-body" style="margin-top:0.5rem;">상견례는 신랑 가족과 신부 가족이 처음으로 공식적으로 만나는 자리예요. 함께 식사하며 서로를 알아가고, 결혼 이야기를 나누는 따뜻하고 중요한 시간이에요.</p>
     </div>
-    <p class="section-intro">A month-by-month look at our wedding journey. We'll keep this updated — check back anytime.</p>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:0.75rem;color:var(--text-dark);">서울에서 하길 바라는 이유</h3>
+    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:1rem;">솔직하게 말씀드릴게요. 인도네시아에서 상견례를 하게 되면, 아래 분들이 모두 비행기를 타야 해요 — 모두 직장인이라 휴가도 써야 해요:</p>
+    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:1rem;">Nad & 진혁 · 진혁 부모님 · 진혁 누나 & 매형 · Nad 언니</p>
+    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:1rem;">총 <strong>7명</strong>이 국제선을 타야 해요. 서울-자카르타 왕복 항공권이 1인당 <strong>80~100만 원</strong>(약 Rp 900만~1,100만), 인근 호텔도 1박에 <strong>약 10만 원</strong>(약 Rp 110만)이에요. 7명이 모두 오는 비용은 두 분만 서울에 오시는 것보다 몇 배나 더 커요.</p>
+    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;">전통을 소중히 여기신다는 거 알아요. 다만, 저희가 처한 현실도 함께 이해해 주셨으면 해요.</p>
+    <div class="warm-highlight" style="margin-top:1.5rem;">
+      <p>그리고 서울에 오신다면 — 단순히 저녁 식사 이상의 시간을 함께하고 싶어요. 신혼집 임장도 같이 다니고, 드레스 보러 갈 때도 함께하고, 한복 피팅도 경험해보셨으면 해요. <strong>그 소소하고 일상적인 순간들이 저희가 가장 나누고 싶은 시간이에요</strong> — 결혼식 당일뿐만 아니라, 그 여정 전체를. 🤍</p>
+    </div>
+    <div class="ornament-divider"><div class="ornament-line"></div><div class="ornament-cross">✦</div><div class="ornament-line"></div></div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:0.75rem;color:var(--text-dark);">다른 제안들에 대해</h3>
+    <div class="card" style="margin-bottom:1rem;"><p class="card-label">제안: 화상통화(줌)로 상견례</p><p class="card-body" style="margin-top:0.4rem;">마음은 정말 감사해요. 하지만 상견례는 직접 만나 같은 자리에서 밥을 먹는 것 자체에 의미가 있어요. 진혁이 가족에게 화상통화는 '만난 것'으로 받아들여지기 어려워요. 특히 진혁이 어머니께서 이 부분을 많이 걱정하셨어요.</p></div>
+    <div class="card" style="margin-bottom:1.5rem;"><p class="card-label">제안: 인도네시아 결혼식 며칠 전에 만나는 것</p><p class="card-body" style="margin-top:0.4rem;">결혼 준비로 모두가 바쁜 시간에 처음 만나는 자리를 끼워 넣는 건, 상견례가 가져야 할 여유와 따뜻함을 담기 어려워요.</p></div>
+    <div class="note-box"><p>생각하신 것과 다를 수 있다는 거 알아요. 당장 동의하지 않으셔도 괜찮아요 — 다만, 저희가 내리는 모든 결정이 사랑과 현실적인 고민에서 나온다는 것만 알아주세요. 💛</p></div>
+  </div>
 
+  <div data-lang="id">
+    <p class="section-intro">Ini salah satu momen pra-pernikahan terpenting, dan kami ingin terbuka dan jujur dengan kalian.</p>
+    <div class="card" style="margin-bottom:1.5rem;">
+      <p class="card-label">Apa itu Sanggyeonrye?</p>
+      <p class="card-title">Pertemuan Pertama Kedua Keluarga</p>
+      <p class="card-body" style="margin-top:0.5rem;">Sanggyeonrye adalah makan malam resmi di mana keluarga pengantin pria dan wanita bertemu untuk pertama kalinya — hangat, penuh hormat, berbagi makanan dan membicarakan pernikahan yang akan datang.</p>
+    </div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:0.75rem;color:var(--text-dark);">Mengapa kami berharap mengadakannya di Seoul</h3>
+    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:1rem;">Kami ingin sepenuhnya transparan. Jika Sanggyeonrye diadakan di Indonesia, semua orang di bawah ini harus melakukan perjalanan — semuanya bekerja penuh waktu, semuanya harus mengambil cuti:</p>
+    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:1rem;">Nad & Jin · Orang tua Jin · Kakak perempuan Jin & suaminya · Saudara perempuan Nad</p>
+    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:1rem;">Itu <strong>tujuh orang</strong> yang harus terbang internasional. Tiket pesawat pulang-pergi Seoul–Jakarta sekitar <strong>800.000–1.000.000 KRW per orang</strong> (sekitar Rp 9–11 juta), ditambah hotel dekat rumah kalian sekitar <strong>100.000 KRW per malam</strong> (sekitar Rp 1,1 juta). Untuk seluruh kelompok, totalnya jauh lebih besar dibandingkan jika hanya kalian berdua yang mengunjungi Seoul.</p>
+    <p style="font-size:14px;color:var(--text-mid);line-height:1.85;">Kami menghormati tradisi ini sepenuhnya. Kami hanya berharap kalian juga bisa melihat realitas yang kami hadapi.</p>
+    <div class="warm-highlight" style="margin-top:1.5rem;">
+      <p>Dan jika kalian datang ke Seoul — kami ingin itu menjadi jauh lebih dari sekadar makan malam. Kami ingin mengajak kalian berburu apartemen, menemani Nad mencoba gaun pernikahan, dan merasakan fitting Hanbok bersama. <strong>Momen-momen kecil inilah yang paling ingin kami bagikan</strong> — seluruh perjalanan, bukan hanya upacara itu sendiri. 🤍</p>
+    </div>
+    <div class="ornament-divider"><div class="ornament-line"></div><div class="ornament-cross">✦</div><div class="ornament-line"></div></div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:0.75rem;color:var(--text-dark);">Tentang saran lain yang sudah kami pertimbangkan</h3>
+    <div class="card" style="margin-bottom:1rem;"><p class="card-label">Saran: Sanggyeonrye lewat video call</p><p class="card-body" style="margin-top:0.4rem;">Kami menghargai pemikirannya. Tapi Sanggyeonrye bermakna justru karena dilakukan secara langsung — perjalanan untuk bertemu, duduk di meja yang sama, berbagi makanan itulah yang membuatnya nyata. Ibu Jin khususnya sangat keberatan dengan ini.</p></div>
+    <div class="card" style="margin-bottom:1.5rem;"><p class="card-label">Saran: Bertemu beberapa hari sebelum pernikahan Indonesia</p><p class="card-body" style="margin-top:0.4rem;">Ini berarti keluarga kami bertemu untuk pertama kalinya tepat di tengah persiapan pernikahan — terburu-buru, tanpa ruang untuk benar-benar saling mengenal. Sanggyeonrye dimaksudkan sebagai pertemuan yang santai dan hangat.</p></div>
+    <div class="note-box"><p>Kami tahu ini mungkin bukan yang kalian bayangkan. Kami tidak meminta kalian untuk langsung setuju — hanya ingin kalian tahu bahwa setiap keputusan datang dari cinta dan keinginan tulus untuk menghormati kedua keluarga. 💛</p></div>
+  </div>
+</div>
+
+<!-- 05 CATHOLIC -->
+<div class="section" id="catholic">
+  <div class="section-header">
+    <span class="section-number">05</span>
+    <h2 class="section-title"><span data-lang="en">Our Catholic Faith & Church Wedding</span><span data-lang="ko">우리의 천주교 신앙과 성당 결혼식</span><span data-lang="id">Iman Katolik & Pernikahan Gereja Kami</span></h2>
+  </div>
+  <div data-lang="en">
+    <p class="section-intro">Our Catholic faith is at the heart of our relationship, and we want our marriage to be truly blessed by the Church.</p>
+    <div class="card-grid card-grid-2">
+      <div class="card"><p class="card-label">November 1, 2026</p><p class="card-title">Jin's Baptism</p><p class="card-body">Jinhyeok will be baptized on <strong>All Saints' Day</strong> — a sincere and joyful commitment to our faith and our future.</p></div>
+      <div class="card"><p class="card-label">November 2026</p><p class="card-title">Marriage Preparation</p><p class="card-body">We will attend <strong>Catholic marriage preparation classes</strong> (혼인교리) together — required before a Catholic wedding.</p></div>
+    </div>
+    <div class="card" style="margin-bottom:1.5rem;"><p class="card-label">2027 · Indonesia</p><p class="card-title">Catholic Church Wedding — for You</p><p class="card-body" style="margin-top:0.4rem;">A full Catholic ceremony in Indonesia, so you and our faith community can witness our vows at home. This is planned with you in mind, from beginning to end. 🙏</p></div>
+    <div class="note-box"><p><strong>A note from Nad:</strong> I know how deeply important our faith is to you, and it is to me too. Having Jin receive baptism, and preparing together through the Church — it means everything. Thank you for raising me in a home full of faith. The church wedding is for you. 🤍</p></div>
+  </div>
+  <div data-lang="ko">
+    <p class="section-intro">천주교 신앙은 우리 관계의 중심이에요. 교회의 축복 속에 결혼하고 싶어요.</p>
+    <div class="card-grid card-grid-2">
+      <div class="card"><p class="card-label">2026년 11월 1일</p><p class="card-title">진혁 세례</p><p class="card-body">모든 성인 대축일에 세례를 받을 예정이에요.</p></div>
+      <div class="card"><p class="card-label">2026년 11월</p><p class="card-title">혼인교리</p><p class="card-body">성당 결혼식 전 필수 과정인 <strong>혼인교리</strong>를 함께 받을 예정이에요.</p></div>
+    </div>
+    <div class="card" style="margin-bottom:1.5rem;"><p class="card-label">2027년 · 인도네시아</p><p class="card-title">성당 결혼식 — 가족을 위해</p><p class="card-body" style="margin-top:0.4rem;">인도네시아에서 가톨릭 예식을 올릴 거예요. 여러분이 계신 곳에서, 신앙 공동체 안에서 서약을 나누고 싶어요. 🙏</p></div>
+    <div class="note-box"><p><strong>Nad의 마음:</strong> 엄마아빠에게 신앙이 얼마나 중요한지 알아요. 저도 마찬가지예요. 신앙이 있는 가정에서 키워주셔서 감사해요. 성당 결혼식은 여러분을 위한 거예요. 🤍</p></div>
+  </div>
+  <div data-lang="id">
+    <p class="section-intro">Iman Katolik kami ada di inti hubungan kami, dan kami ingin pernikahan kami benar-benar diberkati oleh Gereja.</p>
+    <div class="card-grid card-grid-2">
+      <div class="card"><p class="card-label">1 November 2026</p><p class="card-title">Baptis Jin</p><p class="card-body">Jinhyeok akan dibaptis pada <strong>Hari Semua Orang Kudus</strong>.</p></div>
+      <div class="card"><p class="card-label">November 2026</p><p class="card-title">Persiapan Pernikahan</p><p class="card-body">Kami akan mengikuti <strong>kelas persiapan pernikahan Katolik</strong> bersama — diwajibkan sebelum pernikahan Katolik.</p></div>
+    </div>
+    <div class="card" style="margin-bottom:1.5rem;"><p class="card-label">2027 · Indonesia</p><p class="card-title">Pernikahan Gereja Katolik — Untuk Kalian</p><p class="card-body" style="margin-top:0.4rem;">Upacara Katolik penuh di Indonesia, agar kalian dan komunitas iman kami bisa menyaksikan janji kami di tanah air. Direncanakan dengan kalian dalam pikiran. 🙏</p></div>
+    <div class="note-box"><p><strong>Pesan dari Nad:</strong> Aku tahu betapa pentingnya iman kita. Melihat Jin dibaptis dan menjalani persiapan Gereja bersama — itu berarti segalanya. Terima kasih telah membesarkan aku dalam rumah yang penuh iman. Pernikahan gereja ini untuk kalian. 🤍</p></div>
+  </div>
+</div>
+
+<!-- 06 TIMELINE -->
+<div class="section" id="timeline">
+  <div class="section-header">
+    <span class="section-number">06</span>
+    <h2 class="section-title"><span data-lang="en">Our Preparation Timeline</span><span data-lang="ko">준비 타임라인</span><span data-lang="id">Jadwal Persiapan Kami</span></h2>
+  </div>
+  <div data-lang="en">
+    <p class="section-intro">A month-by-month look at our journey. We'll keep this updated — check back anytime.</p>
     <div class="timeline">
-      <div class="timeline-item done">
-        <div class="timeline-dot"></div>
-        <p class="timeline-date">April 2026 · Now</p>
-        <h3 class="timeline-title">Planning begins <span class="badge badge-done">Now ✓</span></h3>
-        <p class="timeline-desc">We are officially in planning mode — researching venues, coordinating between Korea and Indonesia, and creating this page for you. 💛</p>
-      </div>
-
-      <div class="timeline-item active">
-        <div class="timeline-dot"></div>
-        <p class="timeline-date">Mid 2026</p>
-        <h3 class="timeline-title">Book the Korean wedding venue <span class="badge badge-soon">Upcoming</span></h3>
-        <p class="timeline-desc">We visit wedding halls in Seoul and confirm our venue and date — May 30 or June 13, 2027. We'll let you know as soon as it's confirmed!</p>
-      </div>
-
-      <div class="timeline-item active">
-        <div class="timeline-dot"></div>
-        <p class="timeline-date">2026 · Date TBC</p>
-        <h3 class="timeline-title">Sanggyeonrye in Seoul <span class="badge badge-soon">Planning</span></h3>
-        <p class="timeline-desc">We hope to hold the first family meeting dinner in Seoul and would love for you to be there. We are also hoping to share wedding dress shopping, apartment hunting, and the Hanbok experience with you when you visit.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="timeline-date">November 1, 2026</p>
-        <h3 class="timeline-title">Jin's Baptism <span class="badge badge-future">Planned</span></h3>
-        <p class="timeline-desc">Jinhyeok will be baptized on All Saints' Day — a meaningful milestone for our family and faith.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="timeline-date">November 2026</p>
-        <h3 class="timeline-title">Catholic marriage preparation classes <span class="badge badge-future">Planned</span></h3>
-        <p class="timeline-desc">We attend 혼인교리 together at our Catholic parish in Korea — a spiritual preparation for the Church wedding.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="timeline-date">Early 2027</p>
-        <h3 class="timeline-title">Wedding photos & dress fitting <span class="badge badge-future">Planned</span></h3>
-        <p class="timeline-desc">Professional pre-wedding photo shoot, and Nadya finalizes her wedding dress and Hanbok selections.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="timeline-date">Spring 2027</p>
-        <h3 class="timeline-title">Invitations sent <span class="badge badge-future">Planned</span></h3>
-        <p class="timeline-desc">Formal invitations go out. We will coordinate travel arrangements for family coming from Indonesia.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="timeline-date">May or June 2027</p>
-        <h3 class="timeline-title">Korean Wedding Day 🎉 <span class="badge badge-future">Planned</span></h3>
-        <p class="timeline-desc">Our ceremony in Seoul. We cannot wait to celebrate with everyone.</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <p class="timeline-date">2027 · Date TBC</p>
-        <h3 class="timeline-title">Catholic Church Wedding in Indonesia 🙏 <span class="badge badge-future">Planned</span></h3>
-        <p class="timeline-desc">Our sacred ceremony at home, in the Church, surrounded by you and our Indonesian family. Planned especially for you.</p>
-      </div>
+      <div class="timeline-item done"><div class="timeline-dot"></div><p class="timeline-date">April 2026 · Now</p><h3 class="timeline-title">Planning begins <span class="badge badge-done">Now ✓</span></h3><p class="timeline-desc">We are in full planning mode — venue research, apartment hunting, and making this page for you. 💛</p></div>
+      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">Mid 2026</p><h3 class="timeline-title">Sign the venue contract <span class="badge badge-soon">Upcoming</span></h3><p class="timeline-desc">Signing the contract for Sky Garden Hall and confirming our date — May 30 or June 13, 2027.</p></div>
+      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">2026 · Date TBC</p><h3 class="timeline-title">Sanggyeonrye in Seoul <span class="badge badge-soon">Planning</span></h3><p class="timeline-desc">We hope to hold the first family meeting dinner in Seoul. If you visit, we'd also love to share wedding dress shopping, apartment hunting, and the Hanbok experience together.</p></div>
+      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">Ongoing · 2026–2027</p><h3 class="timeline-title">Searching for our new home 🏠 <span class="badge badge-soon">In progress</span></h3><p class="timeline-desc">Actively looking in Seoul for our first home — visiting properties and talking about it every day. Aiming to move by March 2027.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">November 1, 2026</p><h3 class="timeline-title">Jin's Baptism <span class="badge badge-future">Planned</span></h3><p class="timeline-desc">Jinhyeok will be baptized on All Saints' Day.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">November 2026</p><h3 class="timeline-title">Catholic marriage preparation classes <span class="badge badge-future">Planned</span></h3><p class="timeline-desc">We attend 혼인교리 together at our Catholic parish.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Around March 2027</p><h3 class="timeline-title">Moving into our new home 🏠 <span class="badge badge-future">Planned</span></h3><p class="timeline-desc">Nad's lease ends in March 2027. We move into our new home — our first place as a couple!</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Early 2027</p><h3 class="timeline-title">Wedding photos & dress fitting <span class="badge badge-future">Planned</span></h3><p class="timeline-desc">Professional pre-wedding photo shoot and final dress and Hanbok selections.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">May or June 2027</p><h3 class="timeline-title">Korean Wedding Day 🎉 <span class="badge badge-future">Planned</span></h3><p class="timeline-desc">Our ceremony at Sky Garden Hall, Seoul. We cannot wait.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2027 · Date TBC</p><h3 class="timeline-title">Catholic Church Wedding in Indonesia 🙏 <span class="badge badge-future">Planned</span></h3><p class="timeline-desc">Our sacred ceremony at home, in the Church, surrounded by you. Planned especially for you.</p></div>
     </div>
   </div>
+  <div data-lang="ko">
+    <p class="section-intro">결혼식, 신혼집, 그 사이의 모든 것 — 월별로 정리했어요. 계속 업데이트할게요.</p>
+    <div class="timeline">
+      <div class="timeline-item done"><div class="timeline-dot"></div><p class="timeline-date">2026년 4월 · 지금</p><h3 class="timeline-title">준비 시작 <span class="badge badge-done">진행 중 ✓</span></h3><p class="timeline-desc">예식장 알아보고, 신혼집도 보러 다니고, 이 페이지도 만들었어요. 💛</p></div>
+      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">2026년 중반</p><h3 class="timeline-title">예식장 계약 <span class="badge badge-soon">예정</span></h3><p class="timeline-desc">라마다 서울 신도림 하늘정원홀 계약 후, 날짜 확정 (5월 30일 또는 6월 13일).</p></div>
+      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">2026년 · 날짜 미정</p><h3 class="timeline-title">서울에서 상견례 <span class="badge badge-soon">계획 중</span></h3><p class="timeline-desc">서울에서 상견례를 하길 바라고 있어요. 오실 때 드레스 투어, 집 임장, 한복 피팅도 함께하면 좋겠어요.</p></div>
+      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">2026–2027 · 계속</p><h3 class="timeline-title">신혼집 탐색 중 🏠 <span class="badge badge-soon">진행 중</span></h3><p class="timeline-desc">서울 내에서 매일 신혼집을 알아보고 있어요. 2027년 3월 이사 목표예요.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2026년 11월 1일</p><h3 class="timeline-title">진혁 세례 <span class="badge badge-future">예정</span></h3><p class="timeline-desc">모든 성인 대축일에 세례를 받을 예정이에요.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2026년 11월</p><h3 class="timeline-title">혼인교리 <span class="badge badge-future">예정</span></h3><p class="timeline-desc">성당 결혼식을 위한 혼인교리를 함께 받아요.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2027년 3월경</p><h3 class="timeline-title">신혼집으로 이사 🏠 <span class="badge badge-future">예정</span></h3><p class="timeline-desc">Nad 계약 만기에 맞춰 신혼집으로 이사해요. 우리 둘만의 첫 번째 공간!</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2027년 초</p><h3 class="timeline-title">웨딩 촬영 & 드레스 피팅 <span class="badge badge-future">예정</span></h3><p class="timeline-desc">전문 스튜디오 촬영, 드레스 및 한복 최종 선택.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2027년 5월 또는 6월</p><h3 class="timeline-title">한국 결혼식 🎉 <span class="badge badge-future">예정</span></h3><p class="timeline-desc">라마다 신도림 하늘정원홀에서의 결혼식. 모두와 함께 축하하고 싶어요.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2027년 · 날짜 미정</p><h3 class="timeline-title">인도네시아 성당 결혼식 🙏 <span class="badge badge-future">예정</span></h3><p class="timeline-desc">인도네시아 성당에서의 결혼식. 여러분을 위해 계획하고 있어요.</p></div>
+    </div>
+  </div>
+  <div data-lang="id">
+    <p class="section-intro">Pandangan bulan demi bulan tentang perjalanan kami. Kami akan terus memperbarui halaman ini.</p>
+    <div class="timeline">
+      <div class="timeline-item done"><div class="timeline-dot"></div><p class="timeline-date">April 2026 · Sekarang</p><h3 class="timeline-title">Perencanaan dimulai <span class="badge badge-done">Sekarang ✓</span></h3><p class="timeline-desc">Mode perencanaan penuh — riset venue, berburu apartemen, dan membuat halaman ini untuk kalian. 💛</p></div>
+      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">Pertengahan 2026</p><h3 class="timeline-title">Tandatangani kontrak venue <span class="badge badge-soon">Akan datang</span></h3><p class="timeline-desc">Menandatangani kontrak untuk Sky Garden Hall dan konfirmasi tanggal — 30 Mei atau 13 Juni 2027.</p></div>
+      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">2026 · Tanggal TBD</p><h3 class="timeline-title">Sanggyeonrye di Seoul <span class="badge badge-soon">Direncanakan</span></h3><p class="timeline-desc">Kami berharap mengadakan makan malam pertemuan keluarga di Seoul. Jika kalian berkunjung, kami ingin berbagi pengalaman belanja gaun, berburu apartemen, dan fitting Hanbok bersama.</p></div>
+      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">Berlanjut · 2026–2027</p><h3 class="timeline-title">Mencari rumah baru 🏠 <span class="badge badge-soon">Sedang berjalan</span></h3><p class="timeline-desc">Aktif mencari rumah pertama kami di Seoul. Targetnya pindah Maret 2027.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">1 November 2026</p><h3 class="timeline-title">Baptis Jin <span class="badge badge-future">Direncanakan</span></h3><p class="timeline-desc">Jinhyeok akan dibaptis pada Hari Semua Orang Kudus.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">November 2026</p><h3 class="timeline-title">Kelas persiapan pernikahan Katolik <span class="badge badge-future">Direncanakan</span></h3><p class="timeline-desc">Kami mengikuti kelas persiapan bersama di paroki Katolik kami.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Sekitar Maret 2027</p><h3 class="timeline-title">Pindah ke rumah baru 🏠 <span class="badge badge-future">Direncanakan</span></h3><p class="timeline-desc">Kontrak Nad berakhir Maret 2027. Kami pindah ke rumah baru — tempat pertama kami sebagai pasangan!</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Awal 2027</p><h3 class="timeline-title">Sesi foto & fitting gaun <span class="badge badge-future">Direncanakan</span></h3><p class="timeline-desc">Sesi foto pra-pernikahan profesional dan pilihan gaun serta Hanbok final.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Mei atau Juni 2027</p><h3 class="timeline-title">Hari Pernikahan Korea 🎉 <span class="badge badge-future">Direncanakan</span></h3><p class="timeline-desc">Upacara kami di Sky Garden Hall, Seoul. Kami tidak sabar!</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2027 · Tanggal TBD</p><h3 class="timeline-title">Pernikahan Gereja Katolik di Indonesia 🙏 <span class="badge badge-future">Direncanakan</span></h3><p class="timeline-desc">Upacara suci kami di tanah air, di Gereja, dikelilingi kalian. Direncanakan khusus untuk kalian.</p></div>
+    </div>
+  </div>
+</div>
 
-  <footer>
-    <div class="footer-ornament"></div>
-    <p class="footer-text">
-      May God bless this union<br>
-      and bring our families together<br>
-      in love, understanding, and joy.<br>
-      <span style="font-size:14px;letter-spacing:0.04em;">We love you — Nadya & Jin 🤍</span>
-    </p>
-    <p class="footer-updated">Last updated April 2026 · This page will grow with our plans</p>
-  </footer>
+<footer>
+  <div class="footer-ornament"></div>
+  <p class="footer-text">
+    <span data-lang="en">May God bless this union<br>and bring our families together<br>in love, understanding, and joy.<br><span style="font-size:14px;letter-spacing:0.04em;">We love you — Nad & Jin 🤍</span></span>
+    <span data-lang="ko">이 사랑을 하느님께서 축복해 주시길,<br>두 가족을 사랑과 이해로 하나로 묶어주시길.<br><span style="font-size:14px;letter-spacing:0.04em;">사랑해요 — Nad & 진혁 🤍</span></span>
+    <span data-lang="id">Semoga Tuhan memberkati persatuan ini<br>dan menyatukan keluarga kita dalam kasih dan sukacita.<br><span style="font-size:14px;letter-spacing:0.04em;">Kami menyayangi kalian — Nad & Jin 🤍</span></span>
+  </p>
+  <p class="footer-updated">
+    <span data-lang="en">Last updated April 2026 · This page will grow with our plans</span>
+    <span data-lang="ko">마지막 업데이트 2026년 4월 · 계획이 확정될 때마다 업데이트할게요</span>
+    <span data-lang="id">Terakhir diperbarui April 2026 · Halaman ini akan terus diperbarui</span>
+  </p>
+</footer>
 
+<script>
+  function setLang(lang, btn) {
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    localStorage.setItem('wedding-lang', lang);
+  }
+  function toggleCeremony(btn) {
+    btn.classList.toggle('open');
+    const steps = btn.nextElementSibling;
+    steps.classList.toggle('open');
+  }
+  (function() {
+    var saved = localStorage.getItem('wedding-lang');
+    if (!saved) return;
+    document.body.className = 'lang-' + saved;
+    var map = { ko: '한국어', en: 'English', id: 'Indonesia' };
+    document.querySelectorAll('.lang-btn').forEach(function(b) {
+      b.classList.toggle('active', b.textContent.trim() === map[saved]);
+    });
+  })();
+</script>
 </body>
 </html>
