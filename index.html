@@ -157,6 +157,8 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
     .card-idea { background: #F0F5EE; border: 1px solid #C8D9C0; border-radius: 2px; padding: 1.25rem; margin-bottom: 1rem; }
     .card-idea .card-label { color: #5A7A52; }
     .card-idea .card-body { font-size: 13.5px; color: var(--text-mid); line-height: 1.75; }
+
+    nav a.current { color: var(--gold); border-bottom: 2px solid var(--gold); }
   </style>
 </head>
 <body class="lang-en">
@@ -584,6 +586,23 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
       b.classList.toggle('active', b.textContent.trim() === map[saved]);
     });
   })();
+
+  const navLinks = document.querySelectorAll('nav a');
+  const sections = document.querySelectorAll('.section');
+  window.addEventListener('scroll', function() {
+    let current = '';
+    sections.forEach(function(sec) {
+      if (window.scrollY >= sec.offsetTop - 80) {
+        current = sec.getAttribute('id');
+      }
+    });
+    navLinks.forEach(function(a) {
+      a.classList.remove('current');
+      if (a.getAttribute('href') === '#' + current) {
+        a.classList.add('current');
+      }
+    });
+  });
 </script>
 </body>
 </html>
