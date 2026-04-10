@@ -600,6 +600,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
       a.classList.remove('current');
       if (a.getAttribute('href') === '#' + current) {
         a.classList.add('current');
+        a.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
     });
   });
