@@ -37,10 +37,13 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
     .hero-date { font-size: 14px; color: var(--text-mid); font-weight: 300; letter-spacing: 0.04em; margin-bottom: 0.3rem; }
     .hero-date-note { font-size: 13px; color: var(--text-light); font-style: italic; font-family: 'Cormorant Garamond', serif; }
     .hero-sub { margin-top: 2rem; font-size: 14px; color: var(--text-light); max-width: 340px; line-height: 1.8; opacity: 0; animation: fadeUp 0.8s ease 0.9s forwards; }
-    .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; opacity: 0; animation: fadeUp 0.8s ease 1.2s forwards; }
+    .scroll-hint { position: absolute; bottom: 2rem; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; opacity: 0; animation: fadeUp 0.8s ease 1.2s forwards; }
     .scroll-hint span { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); }
-    .scroll-arrow { width: 1px; height: 24px; background: linear-gradient(to bottom, var(--gold-light), transparent); animation: scrollPulse 1.8s ease infinite; }
-    @keyframes scrollPulse { 0%,100%{opacity:.4;transform:scaleY(.7)} 50%{opacity:1;transform:scaleY(1)} }
+    .scroll-chevron { display: flex; flex-direction: column; align-items: center; gap: 3px; animation: scrollBounce 1.6s ease infinite; }
+    .scroll-chevron::before,
+    .scroll-chevron::after { content: ''; display: block; width: 8px; height: 8px; border-right: 1.5px solid var(--gold-light); border-bottom: 1.5px solid var(--gold-light); transform: rotate(45deg); }
+    .scroll-chevron::after { opacity: 0.4; }
+    @keyframes scrollBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
     @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 
     .section { max-width: 680px; margin: 0 auto; padding: 3.5rem 1.25rem; }
@@ -195,7 +198,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
   <p class="hero-sub"><span data-lang="en">We made this page just for you — so you can follow our journey and feel close to us every step of the way. We love you so much. 💛</span><span data-lang="ko">이 페이지는 여러분을 위해 만들었어요. 우리의 여정을 함께 따라오실 수 있도록. 많이 사랑해요. 💛</span><span data-lang="id">Kami membuat halaman ini khusus untuk keluarga kami — agar bisa mengikuti perjalanan kami. We love you all so much 💛</span></p>
   <div class="scroll-hint">
     <span><span data-lang="en">Scroll</span><span data-lang="ko">스크롤</span><span data-lang="id">Gulir</span></span>
-    <div class="scroll-arrow"></div>
+    <div class="scroll-chevron"></div>
   </div>
 </section>
 
