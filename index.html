@@ -72,6 +72,9 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
     .timeline-item.done .timeline-dot { background:var(--gold); border-color:var(--gold); }
     .timeline-item.active .timeline-dot { background:var(--warm-white); border-color:var(--gold); box-shadow:0 0 0 3px var(--gold-pale); }
     .timeline-date { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:0.2rem; }
+    .timeline-date-block { display:flex; align-items:baseline; gap:0.5rem; margin-bottom:0.25rem; flex-wrap:wrap; }
+    .timeline-date-main { font-family:'Cormorant Garamond',serif; font-size:15px; font-weight:600; color:var(--gold); letter-spacing:0.02em; }
+    .timeline-date-sub { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-light); }
     .timeline-title { font-size:15px; font-weight:500; color:var(--text-dark); margin-bottom:0.3rem; display:flex; align-items:flex-start; gap:0.5rem; flex-wrap:wrap; line-height:1.4; }
     .badge { display:inline-block; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; padding:2px 7px; border-radius:1px; flex-shrink:0; margin-top:1px; }
     .badge-done { background:#EEF5E8; color:#4A7A2A; }
@@ -206,7 +209,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
     <p class="section-intro">We are planning two celebrations and preparing our first home together — everything is moving at once, and we want you to be part of every step.</p>
     <div class="card-grid card-grid-2">
       <div class="card"><p class="card-label">Wedding 1 · Korea</p><p class="card-title">Korean Ceremony</p><p class="card-body">A modern Korean-style ceremony in Seoul. We are deciding between <strong>May 23</strong> and <strong>June 13, 2027</strong> — the date affects the venue pricing, and the total cost falls between 20–30M KRW (around Rp 220–330 million). We want to make a thoughtful choice we won't regret.</p></div>
-      <div class="card"><p class="card-label">Wedding 2 · Indonesia</p><p class="card-title">Catholic Church Ceremony</p><p class="card-body">A Catholic ceremony in Indonesia — planned so our Indonesian family can witness our vows at home. This one is for you. 🙏</p></div>
+      <div class="card"><p class="card-label">Wedding 2 · Indonesia</p><p class="card-title">Catholic Church Ceremony</p><p class="card-body">Once Jin's baptism and Catholic marriage preparation are completed in November 2026, we are thinking it would be nice to hold the Indonesian ceremony sometime before the Korean wedding (May/June 2027). We are planning a Mass at Nad's high school chapel, followed by a nice Indonesian reception dinner — intimate, meaningful, and truly ours. 🙏</p></div>
     </div>
     <div class="card" style="margin-bottom:1.5rem;"><p class="card-label">Our New Home</p><p class="card-title">Finding a Place to Begin</p><p class="card-body">Nad's current lease ends in <strong>March 2027</strong>, so we are actively looking for our first home together in Seoul. We are considering buying (up to 900M KRW / around Rp 10 billion) or renting on a long-term jeonse contract (500–600M KRW / around Rp 5.5–6.5 billion). There is a lot to consider — investment value, neighborhood, visiting properties in person — a very complicated and hard decision, and we talk about it every single day. 🏠</p></div>
     <div class="note-box"><p>Two weddings, a new home, a car, tax — preparing for all of this at once has shown us how quickly costs add up. We have made a conscious decision: rather than going as big or as lavish as possible, we want to spend thoughtfully and make choices we truly won't regret. Meaningful over extravagant — that feels right for us. 💛</p></div>
@@ -219,7 +222,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
     <p class="section-intro">한국과 인도네시아 두 곳에서 결혼식을 계획하고, 동시에 신혼집도 알아보고 있어요.</p>
     <div class="card-grid card-grid-2">
       <div class="card"><p class="card-label">결혼식 1 · 한국</p><p class="card-title">한국 결혼식</p><p class="card-body">서울에서 진행 예정. <strong>2027년 5월 23일</strong> 또는 <strong>6월 13일</strong> 중 고민 중이에요 — 날짜에 따라 예식장 가격이 달라져서, 신중하게 결정하고 있어요. 견적은 <strong>2,000~3,000만 원</strong> 사이예요.</p></div>
-      <div class="card"><p class="card-label">결혼식 2 · 인도네시아</p><p class="card-title">천주교 성당 결혼식</p><p class="card-body">인도네시아 가족들이 함께할 수 있도록 고향에서 진행하는 가톨릭 예식이에요. 🙏</p></div>
+      <div class="card"><p class="card-label">결혼식 2 · 인도네시아</p><p class="card-title">천주교 성당 결혼식</p><p class="card-body">진혁이 세례와 혼인교리를 2026년 11월에 마무리하면, 한국 결혼식(5월/6월 2027) 전에 진행할 수 있으면 좋겠다고 생각하고 있어요. Nad 고등학교 kapel에서 미사 후, 인도네시아식 근사한 식사를 함께할 예정이에요. 🙏</p></div>
     </div>
     <div class="card" style="margin-bottom:1.5rem;"><p class="card-label">신혼집</p><p class="card-title">함께 살 집 알아보는 중</p><p class="card-body">Nad의 현재 집 계약이 <strong>2027년 3월</strong>에 만기라, 신혼집으로 이사할 준비 중이에요. 매매 9억 이하 또는 전세 5~6억 선으로 서울 내에서 알아보고 있어요. 매일 둘이 이야기하며 함께 결정해 나가고 있어요. 🏠</p></div>
     <div class="note-box"><p>두번의 결혼식, 신혼집, 차, 스드메까지 — 준비하면서 생각보다 돈이 많이 필요하다는 걸 실감하고 있어요. 그래서 우리는 무조건 크고 화려하게 하기보다, 적당한 선에서 후회 없는 선택을 하자는 마음으로 하나씩 결정해 나가고 있어요. 💛</p></div>
@@ -232,7 +235,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
     <p class="section-intro">Kami merencanakan dua perayaan dan mempersiapkan rumah pertama kami — semuanya berjalan sekaligus.</p>
     <div class="card-grid card-grid-2">
       <div class="card"><p class="card-label">Pernikahan 1 · Korea</p><p class="card-title">Upacara Korea</p><p class="card-body">Upacara gaya Korea modern di Seoul. Kami memilih antara <strong>23 Mei</strong> atau <strong>13 Juni 2027</strong> — tanggalnya mempengaruhi harga venue, dan total biayanya sekitar 20–30 juta KRW (sekitar Rp 220–330 juta). Kami ingin membuat pilihan yang bijak dan tidak menyesal.</p></div>
-      <div class="card"><p class="card-label">Pernikahan 2 · Indonesia</p><p class="card-title">Pernikahan Gereja Katolik</p><p class="card-body">Upacara Katolik di Indonesia — agar keluarga Indonesia kami bisa menyaksikan janji kami di tanah air. 🙏</p></div>
+      <div class="card"><p class="card-label">Pernikahan 2 · Indonesia</p><p class="card-title">Pernikahan Gereja Katolik</p><p class="card-body">Setelah baptis Jin dan persiapan pernikahan Katolik selesai di November 2026, kami pikir akan menyenangkan jika pernikahan Indonesia bisa dilakukan sebelum pernikahan Korea (Mei/Juni 2027). Rencananya Misa di kapel SMA Nad, lalu makan malam Indonesia yang hangat bersama keluarga. 🙏</p></div>
     </div>
     <div class="card" style="margin-bottom:1.5rem;"><p class="card-label">Rumah Baru Kami</p><p class="card-title">Mencari Tempat untuk Memulai</p><p class="card-body">Kontrak sewa Nad berakhir <strong>Maret 2027</strong>, jadi kami sedang aktif mencari rumah pertama di Seoul. Kami mempertimbangkan membeli (hingga 900 juta KRW / sekitar Rp 10 miliar) atau menyewa jangka panjang (500–600 juta KRW / sekitar Rp 5,5–6,5 miliar). Hal yang sangat ribet dan sulit, dan kami membicarakannya setiap hari. 🏠</p></div>
     <div class="note-box"><p>Dua acara pernikahan, rumah, mobil, pajak — mempersiapkan semua ini sekaligus membuat kami sadar betapa cepatnya biaya bertambah. Kami telah memutuskan: daripada semewah atau sebesar mungkin, kami ingin memilih dengan bijak dan membuat keputusan yang benar-benar tidak kami sesali. Bermakna lebih penting dari mewah — itu terasa benar bagi kami. 💛</p></div>
@@ -551,7 +554,8 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
       <div class="card"><p class="card-label">November 1, 2026</p><p class="card-title">Jin's Baptism</p><p class="card-body">Jinhyeok will be baptized on <strong>All Saints' Day</strong> — a sincere and joyful commitment to our faith and our future.</p></div>
       <div class="card"><p class="card-label">November 2026</p><p class="card-title">Marriage Preparation</p><p class="card-body">We will attend <strong>Catholic marriage preparation classes</strong> (혼인교리) together — required before a Catholic wedding.</p></div>
     </div>
-    <div class="card" style="margin-bottom:1.5rem;"><p class="card-label">2027 · Indonesia</p><p class="card-title">Catholic Church Wedding — for You</p><p class="card-body" style="margin-top:0.4rem;">A full Catholic ceremony in Indonesia, so you and our faith community can witness our vows at home. This is planned with you in mind, from beginning to end. 🙏</p></div>
+    <div class="card" style="margin-bottom:1rem;"><p class="card-label">2026–2027 · Indonesia</p><p class="card-title">Catholic Church Wedding — for You</p><p class="card-body" style="margin-top:0.4rem;">Once Jin's baptism and marriage prep classes are complete in November 2026, we are thinking it would be nice to hold the Indonesian ceremony sometime before the Korean wedding. The plan: a Mass at Nad's high school chapel, followed by a warm Indonesian reception dinner — intimate, faithful, and truly ours. 🙏</p></div>
+    <div class="card" style="margin-bottom:1.5rem;background:#F5F0EB;border-color:#DDD0BA;"><p class="card-label" style="color:#8A7D6A;">💭 What we also looked into</p><p class="card-body" style="margin-top:0.4rem;font-size:13.5px;">Nad honestly dreamed of a Bali wedding — and we did look into it seriously. We even reviewed <a href="https://tirtha.com/wedding-package/catholic-wedding/" target="_blank" style="color:var(--gold);">Tirtha Bali's Catholic wedding package</a>. But when we factored in flights and accommodation for two families plus close friends, it quickly became impractical. A chapel we love and a beautiful dinner together feels much more right.</p></div>
     <div class="note-box"><p><strong>A note from Nad:</strong> I know how deeply important our faith is to you, and it is to me too. Having Jin receive baptism, and preparing together through the Church — it really means something for me. Thank you for raising me in a home full of faith. The church wedding is for this family. 🤍</p></div>
   </div>
   <div data-lang="ko">
@@ -560,7 +564,8 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
       <div class="card"><p class="card-label">2026년 11월 1일</p><p class="card-title">진혁 세례</p><p class="card-body">모든 성인 대축일에 세례를 받을 예정이에요.</p></div>
       <div class="card"><p class="card-label">2026년 11월</p><p class="card-title">혼인교리</p><p class="card-body">성당 결혼식 전 필수 과정인 <strong>혼인교리</strong>를 함께 받을 예정이에요.</p></div>
     </div>
-    <div class="card" style="margin-bottom:1.5rem;"><p class="card-label">2027년 · 인도네시아</p><p class="card-title">성당 결혼식 — 가족을 위해</p><p class="card-body" style="margin-top:0.4rem;">인도네시아에서 가톨릭 예식을 올릴 거예요. 여러분이 계신 곳에서, 신앙 공동체 안에서 서약을 나누고 싶어요. 🙏</p></div>
+    <div class="card" style="margin-bottom:1rem;"><p class="card-label">2026–2027년 · 인도네시아</p><p class="card-title">성당 결혼식 — 가족을 위해</p><p class="card-body" style="margin-top:0.4rem;">2026년 11월에 세례와 혼인교리가 마무리되면, 한국 결혼식 전에 할 수 있으면 좋겠다고 생각하고 있어요. Nad 고등학교 kapel에서 미사를 드리고, 그 후 인도네시아식 근사한 식사를 함께할 예정이에요. 🙏</p></div>
+    <div class="card" style="margin-bottom:1.5rem;background:#F5F0EB;border-color:#DDD0BA;"><p class="card-label" style="color:#8A7D6A;">💭 검토했던 것들</p><p class="card-body" style="margin-top:0.4rem;font-size:13.5px;">Nad는 발리 결혼식을 꿈꿔왔고, 실제로 진지하게 알아봤어요. <a href="https://tirtha.com/wedding-package/catholic-wedding/" target="_blank" style="color:var(--gold);">Tirtha Bali의 가톨릭 웨딩 패키지</a>도 검토했고요. 하지만 양가 가족과 지인들의 항공편, 숙박까지 고려하면 현실적으로 거의 불가능한 수준이라 판단했어요. 우리가 사랑하는 kapel에서 함께하는 게 훨씬 더 의미 있을 것 같아요.</p></div>
     <div class="note-box"><p><strong>Nad의 마음:</strong> 엄마아빠에게 신앙이 얼마나 중요한지 알아요. 저도 마찬가지예요. 신앙이 있는 가정에서 키워주셔서 감사해요. 성당 결혼식은 여러분을 위한 거예요. 🤍</p></div>
   </div>
   <div data-lang="id">
@@ -569,7 +574,8 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
       <div class="card"><p class="card-label">1 November 2026</p><p class="card-title">Baptis Jin</p><p class="card-body">Jinhyeok akan dibaptis pada <strong>Hari Semua Orang Kudus</strong>.</p></div>
       <div class="card"><p class="card-label">November 2026</p><p class="card-title">Persiapan Pernikahan</p><p class="card-body">Kami akan mengikuti <strong>kelas persiapan pernikahan Katolik</strong> bersama — diwajibkan sebelum pernikahan Katolik.</p></div>
     </div>
-    <div class="card" style="margin-bottom:1.5rem;"><p class="card-label">2027 · Indonesia</p><p class="card-title">Pernikahan Gereja Katolik — Untuk Ibu/Bapak</p><p class="card-body" style="margin-top:0.4rem;">Upacara Katolik penuh di Indonesia, agar keluarga dan komunitas iman kami bisa menyaksikan janji kami di tanah air. Direncanakan dengan keluarga dalam pikiran. 🙏</p></div>
+    <div class="card" style="margin-bottom:1rem;"><p class="card-label">2026–2027 · Indonesia</p><p class="card-title">Pernikahan Gereja Katolik — Untuk Ibu/Bapak</p><p class="card-body" style="margin-top:0.4rem;">Setelah baptis dan persiapan pernikahan selesai di November 2026, kami pikir akan menyenangkan jika pernikahan Indonesia bisa dilakukan sebelum pernikahan Korea. Rencananya: Misa di kapel SMA Nad, lalu makan malam Indonesia yang hangat bersama keluarga. 🙏</p></div>
+    <div class="card" style="margin-bottom:1.5rem;background:#F5F0EB;border-color:#DDD0BA;"><p class="card-label" style="color:#8A7D6A;">💭 Yang sudah kami pertimbangkan</p><p class="card-body" style="margin-top:0.4rem;font-size:13.5px;">Nad sejujurnya bermimpi tentang pernikahan di Bali — dan kami benar-benar mempertimbangkannya dengan serius. Kami bahkan meninjau <a href="https://tirtha.com/wedding-package/catholic-wedding/" target="_blank" style="color:var(--gold);">paket pernikahan Katolik Tirtha Bali</a>. Tapi setelah mempertimbangkan tiket pesawat dan akomodasi untuk kedua keluarga ditambah kerabat dekat, biayanya menjadi tidak masuk akal. Kapel yang kami cintai dan makan malam bersama terasa jauh lebih tepat.</p></div>
     <div class="note-box"><p><strong>Pesan dari Nad:</strong> Aku tahu betapa pentingnya iman kita. Melihat Jin dibaptis dan menjalani persiapan Gereja bersama — itu sangat berarti. Terima kasih telah membesarkan aku dalam rumah yang penuh iman. Pernikahan gereja ini untuk keluarga Nad 🤍</p></div>
   </div>
 </div>
@@ -581,48 +587,198 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
     <h2 class="section-title"><span data-lang="en">Our Preparation Timeline</span><span data-lang="ko">준비 타임라인</span><span data-lang="id">Jadwal Persiapan Kami</span></h2>
   </div>
   <div data-lang="en">
-    <p class="section-intro">A month-by-month look at our journey. We'll keep this updated — check back anytime.</p>
+    <p class="section-intro">A look at our journey from start to finish — we'll keep this updated as things get confirmed.</p>
     <div class="timeline">
-      <div class="timeline-item done"><div class="timeline-dot"></div><p class="timeline-date">April 2026 · Now</p><h3 class="timeline-title">Planning begins <span class="badge badge-done">Now ✓</span></h3><p class="timeline-desc">We are in full planning mode — venue research, apartment hunting, and making this page for you. 💛</p></div>
-      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">Mid 2026</p><h3 class="timeline-title">Sign the venue contract <span class="badge badge-soon">Upcoming</span></h3><p class="timeline-desc">Signing the contract for Sky Garden Hall and confirming our date — May 30 or June 13, 2027.</p></div>
-      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">2026 · Date TBC</p><h3 class="timeline-title">Sanggyeonrye in Seoul <span class="badge badge-soon">Planning</span></h3><p class="timeline-desc">We hope to hold the first family meeting dinner in Seoul. If you visit, we'd also love to share wedding dress shopping, apartment hunting, and the Hanbok experience together.</p></div>
-      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">Ongoing · 2026–2027</p><h3 class="timeline-title">Searching for our new home 🏠 <span class="badge badge-soon">In progress</span></h3><p class="timeline-desc">Actively looking in Seoul for our first home — visiting properties and talking about it every day. Aiming to move by March 2027.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">November 1, 2026</p><h3 class="timeline-title">Jin's Baptism <span class="badge badge-future">Planned</span></h3><p class="timeline-desc">Jinhyeok will be baptized on All Saints' Day.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">November 2026</p><h3 class="timeline-title">Catholic marriage preparation classes <span class="badge badge-future">Planned</span></h3><p class="timeline-desc">We attend 혼인교리 together at our Catholic parish.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Around March 2027</p><h3 class="timeline-title">Moving into our new home 🏠 <span class="badge badge-future">Planned</span></h3><p class="timeline-desc">Nad's lease ends in March 2027. We move into our new home — our first place as a couple!</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Early 2027</p><h3 class="timeline-title">Wedding photos & dress fitting <span class="badge badge-future">Planned</span></h3><p class="timeline-desc">Professional pre-wedding photo shoot and final dress and Hanbok selections.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">May or June 2027</p><h3 class="timeline-title">Korean Wedding Day 🎉 <span class="badge badge-future">Planned</span></h3><p class="timeline-desc">Our ceremony at Sky Garden Hall, Seoul. We cannot wait.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2027 · Date TBC</p><h3 class="timeline-title">Catholic Church Wedding in Indonesia 🙏 <span class="badge badge-future">Planned</span></h3><p class="timeline-desc">Our sacred ceremony at home, in the Church, surrounded by family. Planned especially for family.</p></div>
+      <div class="timeline-item done"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">Feb 2026</span><span class="timeline-date-sub">Start</span></div>
+        <h3 class="timeline-title">Planning begins <span class="badge badge-done">Done ✓</span></h3>
+        <p class="timeline-desc">Venue research, apartment hunting, and making this page for you. 💛</p>
+      </div>
+      <div class="timeline-item active"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">2026 · Ongoing</span></div>
+        <h3 class="timeline-title">Searching for our new home 🏠 <span class="badge badge-soon">In progress</span></h3>
+        <p class="timeline-desc">Actively visiting properties in Seoul. Aiming to move in March 2027.</p>
+      </div>
+      <div class="timeline-item active"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">Mid 2026</span><span class="timeline-date-sub">Upcoming</span></div>
+        <h3 class="timeline-title">Sign Korean venue contract <span class="badge badge-soon">Upcoming</span></h3>
+        <p class="timeline-desc">Signing the contract for Sky Garden Hall — confirming <strong>May 23</strong> or <strong>June 13, 2027</strong>.</p>
+      </div>
+      <div class="timeline-item active"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">May – Jun 2026</span><span class="timeline-date-sub">Deadline</span></div>
+        <h3 class="timeline-title">Wedding planner — meetings & contract <span class="badge badge-soon">In progress</span></h3>
+        <p class="timeline-desc">Meeting planners and finalizing our choice. Need to wrap this up by end of June 2026.</p>
+      </div>
+      <div class="timeline-item active"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">May – Jul 2026</span></div>
+        <h3 class="timeline-title">Dress hunting with wedding planner <span class="badge badge-soon">Upcoming</span></h3>
+        <p class="timeline-desc">Studio, dress, and makeup tours — the 스드메 journey begins.</p>
+      </div>
+      <div class="timeline-item active"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">Jun – Jul 2026</span><span class="timeline-date-sub">Hoping for</span></div>
+        <h3 class="timeline-title">Sanggyeonrye — First Family Meeting <span class="badge badge-soon">Planning</span></h3>
+        <p class="timeline-desc">We hope to hold the first family meeting dinner in June or July — ideally timed so the dress tour and family visit can overlap. 🤍</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">Before Nov 2026</span><span class="timeline-date-sub">Deadline</span></div>
+        <h3 class="timeline-title">Indonesia venue — chapel, priest & restaurant <span class="badge badge-future">Planning</span></h3>
+        <p class="timeline-desc">Finding and confirming the chapel (Nad's high school kapel), the Romo, and the restaurant for the reception dinner. Needs to be settled before baptism and marriage prep begin.</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">Nov 2026</span></div>
+        <h3 class="timeline-title">Jin's Baptism & Catholic marriage prep 🙏 <span class="badge badge-future">Planned</span></h3>
+        <p class="timeline-desc">Jin receives baptism on <strong>All Saints' Day (Nov 1)</strong>, then we attend 혼인교리 together — both required before the church wedding.</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">TBD · Before May 2027</span><span class="timeline-date-sub">Hoping for early 2027</span></div>
+        <h3 class="timeline-title">Indonesia Wedding 🙏 <span class="badge badge-future">Planned</span></h3>
+        <p class="timeline-desc">Mass at Nad's high school chapel, followed by an Indonesian dinner reception. Ideally it would happen sometime before the Korean wedding — exact date TBD once things are confirmed.</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">Mar 2027</span></div>
+        <h3 class="timeline-title">Move into our new home 🏠 <span class="badge badge-future">Planned</span></h3>
+        <p class="timeline-desc">Nad's lease ends — we move into our first home together!</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">May 23 or Jun 13</span><span class="timeline-date-sub">2027</span></div>
+        <h3 class="timeline-title">Korean Wedding Day 🎉 <span class="badge badge-future">Planned</span></h3>
+        <p class="timeline-desc">Our ceremony at Sky Garden Hall, Ramada Seoul Sindorim. We cannot wait.</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">2027</span><span class="timeline-date-sub">TBD</span></div>
+        <h3 class="timeline-title">Honeymoon 🌙 <span class="badge badge-future">Planned</span></h3>
+        <p class="timeline-desc">Destination TBD — but we are dreaming about it already.</p>
+      </div>
     </div>
   </div>
   <div data-lang="ko">
-    <p class="section-intro">결혼식, 신혼집, 그 사이의 모든 것 — 월별로 정리했어요. 계속 업데이트할게요.</p>
+    <p class="section-intro">시작부터 끝까지 — 확정될 때마다 계속 업데이트할게요.</p>
     <div class="timeline">
-      <div class="timeline-item done"><div class="timeline-dot"></div><p class="timeline-date">2026년 4월 · 지금</p><h3 class="timeline-title">준비 시작 <span class="badge badge-done">진행 중 ✓</span></h3><p class="timeline-desc">예식장 알아보고, 신혼집도 보러 다니고, 이 페이지도 만들었어요. 💛</p></div>
-      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">2026년 중반</p><h3 class="timeline-title">예식장 계약 <span class="badge badge-soon">예정</span></h3><p class="timeline-desc">라마다 서울 신도림 하늘정원홀 계약 후, 날짜 확정 (5월 30일 또는 6월 13일).</p></div>
-      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">2026년 · 날짜 미정</p><h3 class="timeline-title">서울에서 상견례 <span class="badge badge-soon">계획 중</span></h3><p class="timeline-desc">서울에서 상견례를 하길 바라고 있어요. 오실 때 드레스 투어, 집 임장, 한복 피팅도 함께하면 좋겠어요.</p></div>
-      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">2026–2027 · 계속</p><h3 class="timeline-title">신혼집 탐색 중 🏠 <span class="badge badge-soon">진행 중</span></h3><p class="timeline-desc">서울 내에서 매일 신혼집을 알아보고 있어요. 2027년 3월 이사 목표예요.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2026년 11월 1일</p><h3 class="timeline-title">진혁 세례 <span class="badge badge-future">예정</span></h3><p class="timeline-desc">모든 성인 대축일에 세례를 받을 예정이에요.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2026년 11월</p><h3 class="timeline-title">혼인교리 <span class="badge badge-future">예정</span></h3><p class="timeline-desc">성당 결혼식을 위한 혼인교리를 함께 받아요.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2027년 3월경</p><h3 class="timeline-title">신혼집으로 이사 🏠 <span class="badge badge-future">예정</span></h3><p class="timeline-desc">Nad 계약 만기에 맞춰 신혼집으로 이사해요. 우리 둘만의 첫 번째 공간!</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2027년 초</p><h3 class="timeline-title">웨딩 촬영 & 드레스 피팅 <span class="badge badge-future">예정</span></h3><p class="timeline-desc">전문 스튜디오 촬영, 드레스 및 한복 최종 선택.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2027년 5월 또는 6월</p><h3 class="timeline-title">한국 결혼식 🎉 <span class="badge badge-future">예정</span></h3><p class="timeline-desc">라마다 신도림 하늘정원홀에서의 결혼식. 모두와 함께 축하하고 싶어요.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2027년 · 날짜 미정</p><h3 class="timeline-title">인도네시아 성당 결혼식 🙏 <span class="badge badge-future">예정</span></h3><p class="timeline-desc">인도네시아 성당에서의 결혼식. 여러분을 위해 계획하고 있어요.</p></div>
+      <div class="timeline-item done"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">2026년 2월</span><span class="timeline-date-sub">시작</span></div>
+        <h3 class="timeline-title">준비 시작 <span class="badge badge-done">완료 ✓</span></h3>
+        <p class="timeline-desc">예식장 알아보고, 신혼집도 보러 다니고, 이 페이지도 만들었어요. 💛</p>
+      </div>
+      <div class="timeline-item active"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">2026년 · 계속</span></div>
+        <h3 class="timeline-title">신혼집 탐색 중 🏠 <span class="badge badge-soon">진행 중</span></h3>
+        <p class="timeline-desc">서울 곳곳 매물을 보러 다니고 있어요. 2027년 3월 이사 목표예요.</p>
+      </div>
+      <div class="timeline-item active"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">2026년 중반</span><span class="timeline-date-sub">예정</span></div>
+        <h3 class="timeline-title">예식장 계약 <span class="badge badge-soon">예정</span></h3>
+        <p class="timeline-desc">라마다 서울 신도림 하늘정원홀 계약 및 날짜 확정 — <strong>5월 23일</strong> 또는 <strong>6월 13일, 2027</strong>.</p>
+      </div>
+      <div class="timeline-item active"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">5–6월 2026</span><span class="timeline-date-sub">마감</span></div>
+        <h3 class="timeline-title">웨딩 플래너 미팅 & 계약 <span class="badge badge-soon">진행 중</span></h3>
+        <p class="timeline-desc">여러 플래너를 만나보고 있어요. 6월 안으로 마무리해야 해요.</p>
+      </div>
+      <div class="timeline-item active"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">5–7월 2026</span></div>
+        <h3 class="timeline-title">플래너와 스드메 투어 <span class="badge badge-soon">예정</span></h3>
+        <p class="timeline-desc">스튜디오·드레스·메이크업 투어 — 본격 준비 시작!</p>
+      </div>
+      <div class="timeline-item active"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">6–7월 2026</span><span class="timeline-date-sub">희망</span></div>
+        <h3 class="timeline-title">상견례 <span class="badge badge-soon">계획 중</span></h3>
+        <p class="timeline-desc">6~7월 중에 진행하면 드레스 투어를 같이 할 수 있어서 딱이에요. 🤍</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">2026년 11월 전</span><span class="timeline-date-sub">마감</span></div>
+        <h3 class="timeline-title">인도네시아 장소 확정 (kapel, Romo, 식당 등) <span class="badge badge-future">계획 중</span></h3>
+        <p class="timeline-desc">Nad 고등학교 kapel, 신부님(Romo), 피로연 식당까지 세례 전에 확정해야 해요.</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">2026년 11월</span></div>
+        <h3 class="timeline-title">진혁 세례 & 혼인교리 🙏 <span class="badge badge-future">예정</span></h3>
+        <p class="timeline-desc"><strong>모든 성인 대축일(11월 1일)</strong>에 세례를 받고, 이후 혼인교리도 함께 받아요. 성당 결혼식을 위한 필수 과정이에요.</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">시기 미정 · 2027년 5월 전</span><span class="timeline-date-sub">2027년 초 희망</span></div>
+        <h3 class="timeline-title">인도네시아 결혼식 🙏 <span class="badge badge-future">예정</span></h3>
+        <p class="timeline-desc">Nad 고등학교 kapel에서 미사 후 인도네시아식 피로연. 한국 결혼식 전에 할 수 있으면 좋겠어요 — 날짜는 준비되는 대로 확정할게요.</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">2027년 3월</span></div>
+        <h3 class="timeline-title">신혼집으로 이사 🏠 <span class="badge badge-future">예정</span></h3>
+        <p class="timeline-desc">Nad 계약 만기에 맞춰 이사해요. 우리 둘만의 첫 번째 공간!</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">5/23 또는 6/13</span><span class="timeline-date-sub">2027년</span></div>
+        <h3 class="timeline-title">한국 결혼식 🎉 <span class="badge badge-future">예정</span></h3>
+        <p class="timeline-desc">라마다 신도림 하늘정원홀에서의 결혼식. 모두와 함께 축하하고 싶어요!</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">2027년</span><span class="timeline-date-sub">미정</span></div>
+        <h3 class="timeline-title">신혼여행 🌙 <span class="badge badge-future">예정</span></h3>
+        <p class="timeline-desc">어디로 갈지 아직 미정이지만, 벌써부터 기대돼요.</p>
+      </div>
     </div>
   </div>
   <div data-lang="id">
-    <p class="section-intro">Pandangan bulan demi bulan tentang perjalanan kami. Kami akan terus memperbarui halaman ini.</p>
+    <p class="section-intro">Perjalanan kami dari awal hingga akhir — kami akan terus memperbarui halaman ini.</p>
     <div class="timeline">
-      <div class="timeline-item done"><div class="timeline-dot"></div><p class="timeline-date">April 2026 · Sekarang</p><h3 class="timeline-title">Perencanaan dimulai <span class="badge badge-done">Sekarang ✓</span></h3><p class="timeline-desc">Mode perencanaan penuh — riset venue, berburu apartemen, dan membuat halaman ini untuk keluarga Nad 💛</p></div>
-      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">Pertengahan 2026</p><h3 class="timeline-title">Tandatangani kontrak venue <span class="badge badge-soon">Akan datang</span></h3><p class="timeline-desc">Menandatangani kontrak untuk Sky Garden Hall dan konfirmasi tanggal — 30 Mei atau 13 Juni 2027.</p></div>
-      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">2026 · Tanggal TBD</p><h3 class="timeline-title">Sanggyeonrye di Seoul <span class="badge badge-soon">Direncanakan</span></h3><p class="timeline-desc">Kami berharap mengadakan makan malam pertemuan keluarga di Seoul. Jika Ibu/Bapak berkunjung, kami ingin berbagi pengalaman belanja gaun, berburu apartemen, dan fitting Hanbok bersama.</p></div>
-      <div class="timeline-item active"><div class="timeline-dot"></div><p class="timeline-date">Berlanjut · 2026–2027</p><h3 class="timeline-title">Mencari rumah baru 🏠 <span class="badge badge-soon">Sedang berjalan</span></h3><p class="timeline-desc">Aktif mencari rumah pertama kami di Seoul. Targetnya pindah Maret 2027.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">1 November 2026</p><h3 class="timeline-title">Baptis Jin <span class="badge badge-future">Direncanakan</span></h3><p class="timeline-desc">Jinhyeok akan dibaptis pada Hari Semua Orang Kudus.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">November 2026</p><h3 class="timeline-title">Kelas persiapan pernikahan Katolik <span class="badge badge-future">Direncanakan</span></h3><p class="timeline-desc">Kami mengikuti kelas persiapan bersama di paroki Katolik kami.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Sekitar Maret 2027</p><h3 class="timeline-title">Pindah ke rumah baru 🏠 <span class="badge badge-future">Direncanakan</span></h3><p class="timeline-desc">Kontrak Nad berakhir Maret 2027. Kami pindah ke rumah baru — tempat pertama kami sebagai pasangan!</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Awal 2027</p><h3 class="timeline-title">Sesi foto & fitting gaun <span class="badge badge-future">Direncanakan</span></h3><p class="timeline-desc">Sesi foto pra-pernikahan profesional dan pilihan gaun serta Hanbok final.</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">Mei atau Juni 2027</p><h3 class="timeline-title">Hari Pernikahan Korea 🎉 <span class="badge badge-future">Direncanakan</span></h3><p class="timeline-desc">Upacara kami di Sky Garden Hall, Seoul. Kami tidak sabar!</p></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><p class="timeline-date">2027 · Tanggal TBD</p><h3 class="timeline-title">Pernikahan Gereja Katolik di Indonesia 🙏 <span class="badge badge-future">Direncanakan</span></h3><p class="timeline-desc">Upacara suci kami di tanah air, di Gereja, dikelilingi keluarga. Direncanakan khusus untuk keluarag Nad</p></div>
+      <div class="timeline-item done"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">Feb 2026</span><span class="timeline-date-sub">Mulai</span></div>
+        <h3 class="timeline-title">Perencanaan dimulai <span class="badge badge-done">Selesai ✓</span></h3>
+        <p class="timeline-desc">Riset venue, berburu apartemen, dan membuat halaman ini untuk keluarga Nad 💛</p>
+      </div>
+      <div class="timeline-item active"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">2026 · Berlanjut</span></div>
+        <h3 class="timeline-title">Mencari rumah baru 🏠 <span class="badge badge-soon">Sedang berjalan</span></h3>
+        <p class="timeline-desc">Aktif mengunjungi properti di Seoul. Targetnya pindah Maret 2027.</p>
+      </div>
+      <div class="timeline-item active"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">Pertengahan 2026</span><span class="timeline-date-sub">Akan datang</span></div>
+        <h3 class="timeline-title">Tandatangani kontrak venue Korea <span class="badge badge-soon">Akan datang</span></h3>
+        <p class="timeline-desc">Konfirmasi Sky Garden Hall — <strong>23 Mei</strong> atau <strong>13 Juni 2027</strong>.</p>
+      </div>
+      <div class="timeline-item active"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">Mei – Jun 2026</span><span class="timeline-date-sub">Tenggat</span></div>
+        <h3 class="timeline-title">Wedding planner — pertemuan & kontrak <span class="badge badge-soon">Sedang berjalan</span></h3>
+        <p class="timeline-desc">Bertemu beberapa planner dan menyelesaikan pilihan. Harus selesai sebelum akhir Juni 2026.</p>
+      </div>
+      <div class="timeline-item active"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">Mei – Jul 2026</span></div>
+        <h3 class="timeline-title">Berburu gaun bersama wedding planner <span class="badge badge-soon">Akan datang</span></h3>
+        <p class="timeline-desc">Tur studio, gaun, dan makeup — perjalanan 스드메 dimulai.</p>
+      </div>
+      <div class="timeline-item active"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">Jun – Jul 2026</span><span class="timeline-date-sub">Harapan</span></div>
+        <h3 class="timeline-title">Sanggyeonrye — Pertemuan Pertama Keluarga <span class="badge badge-soon">Direncanakan</span></h3>
+        <p class="timeline-desc">Kami berharap bisa mengadakannya Juni–Juli agar bisa bertepatan dengan tur gaun bersama. 🤍</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">Sebelum Nov 2026</span><span class="timeline-date-sub">Tenggat</span></div>
+        <h3 class="timeline-title">Venue Indonesia — kapel, Romo & restoran <span class="badge badge-future">Direncanakan</span></h3>
+        <p class="timeline-desc">Mengkonfirmasi kapel SMA Nad, Romo, dan restoran untuk resepsi. Perlu diselesaikan sebelum baptis dan persiapan pernikahan dimulai.</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">Nov 2026</span></div>
+        <h3 class="timeline-title">Baptis Jin & persiapan pernikahan Katolik 🙏 <span class="badge badge-future">Direncanakan</span></h3>
+        <p class="timeline-desc">Jin dibaptis pada <strong>Hari Semua Orang Kudus (1 Nov)</strong>, lalu kami mengikuti kelas persiapan pernikahan bersama — keduanya wajib sebelum pernikahan Gereja.</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">TBD · Sebelum Mei 2027</span><span class="timeline-date-sub">Harapan: awal 2027</span></div>
+        <h3 class="timeline-title">Pernikahan Indonesia 🙏 <span class="badge badge-future">Direncanakan</span></h3>
+        <p class="timeline-desc">Misa di kapel SMA Nad, lalu resepsi makan malam Indonesia. Kalau bisa, kami berharap ini bisa terjadi sebelum pernikahan Korea — tanggal pasti akan dikonfirmasi setelah semuanya siap.</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">Mar 2027</span></div>
+        <h3 class="timeline-title">Pindah ke rumah baru 🏠 <span class="badge badge-future">Direncanakan</span></h3>
+        <p class="timeline-desc">Kontrak Nad berakhir — kami pindah ke rumah pertama bersama!</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">23 Mei atau 13 Jun</span><span class="timeline-date-sub">2027</span></div>
+        <h3 class="timeline-title">Hari Pernikahan Korea 🎉 <span class="badge badge-future">Direncanakan</span></h3>
+        <p class="timeline-desc">Upacara kami di Sky Garden Hall, Seoul. Kami tidak sabar!</p>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-date-block"><span class="timeline-date-main">2027</span><span class="timeline-date-sub">TBD</span></div>
+        <h3 class="timeline-title">Bulan Madu 🌙 <span class="badge badge-future">Direncanakan</span></h3>
+        <p class="timeline-desc">Tujuan masih belum ditentukan — tapi kami sudah bermimpi tentangnya.</p>
+      </div>
     </div>
   </div>
 </div>
