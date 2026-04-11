@@ -49,14 +49,14 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
     .section { max-width: 680px; margin: 0 auto; padding: 3.5rem 1.25rem; }
     .section + .section { border-top: 1px solid var(--border); }
     .section-header { margin-bottom: 1.5rem; }
-    .section-number { font-family: 'Cormorant Garamond', serif; font-size: 12px; color: var(--gold); letter-spacing: 0.1em; display: block; margin-bottom: 0.25rem; }
+    .section-number { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 0.25rem; }
     .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px,6vw,34px); font-weight: 400; color: var(--text-dark); line-height: 1.2; }
     .section-intro { font-size: 14px; color: var(--text-mid); margin-bottom: 2rem; line-height: 1.85; }
 
     .card-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.5rem; }
     @media(min-width:520px){ .card-grid-2{ grid-template-columns:1fr 1fr; } }
     .card { background: var(--warm-white); border: 1px solid var(--border); border-radius: 2px; padding: 1.25rem; }
-    .card-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
+    .card-label { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
     .card-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-dark); }
     .card-body { font-size: 13.5px; color: var(--text-mid); line-height: 1.75; }
 
@@ -75,9 +75,10 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
     .timeline-item.done .timeline-dot { background:var(--gold); border-color:var(--gold); }
     .timeline-item.active .timeline-dot { background:var(--warm-white); border-color:var(--gold); box-shadow:0 0 0 3px var(--gold-pale); }
     .timeline-date { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:0.2rem; }
-    .timeline-date-block { display:flex; align-items:baseline; gap:0.5rem; margin-bottom:0.25rem; flex-wrap:wrap; }
-    .timeline-date-main { font-family:'Cormorant Garamond',serif; font-size:15px; font-weight:600; color:var(--gold); letter-spacing:0.02em; }
-    .timeline-date-sub { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-light); }
+    .timeline-date-block { display:flex; align-items:baseline; gap:0.5rem; margin-bottom:0.2rem; flex-wrap:wrap; }
+    .timeline-date-main { font-family:'Jost', sans-serif; font-size:13px; font-weight:500; color:var(--gold); letter-spacing:0.06em; text-transform:uppercase; }
+    .timeline-date-sub { display:none; }
+    .badge { display:none; }
     .timeline-title { font-size:15px; font-weight:500; color:var(--text-dark); margin-bottom:0.3rem; display:flex; align-items:flex-start; gap:0.5rem; flex-wrap:wrap; line-height:1.4; }
     .badge { display:inline-block; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; padding:2px 7px; border-radius:1px; flex-shrink:0; margin-top:1px; }
     .badge-done { background:#EEF5E8; color:#4A7A2A; }
@@ -132,7 +133,7 @@ nav { position: sticky; top: 0; z-index: 100; background: rgba(250,247,242,0.95)
     @media(min-width:500px){ .compare-grid{ grid-template-columns:1fr 1fr; } }
     .compare-col { background:var(--warm-white); border:1px solid var(--border); border-radius:2px; overflow:hidden; }
     .compare-header { background:var(--gold-pale); padding:0.7rem 1rem; border-bottom:1px solid var(--border); }
-    .compare-country { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:0.1rem; }
+    .compare-country { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.1rem; }
     .compare-title { font-family:'Cormorant Garamond',serif; font-size:17px; color:var(--text-dark); }
     .compare-item { padding:0.75rem 1rem; border-bottom:1px solid var(--border); font-size:13.5px; color:var(--text-mid); line-height:1.6; display:flex; gap:0.5rem; }
     .compare-item:last-child { border-bottom:none; }
